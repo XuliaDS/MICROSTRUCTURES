@@ -1,0 +1,278 @@
+ ONLY ACCEPTING CUBIC SPLINES 
+
+ Using EGADS  1.13 with OpenCASCADE 6.8.1
+
+ EG_open           = 0
+ EG_loadModel      = 0
+ EG_getTopology:     nBodies = 1
+ face 1 edge 1 = 1
+ face 1 edge 2 = 1
+ face 1 edge 3 = -1
+ face 1 edge 4 = -1
+ face 2 edge 1 = -1
+ face 2 edge 2 = 1
+ face 2 edge 3 = 1
+ face 2 edge 4 = -1
+ face 3 edge 1 = -1
+ face 3 edge 2 = -1
+ face 3 edge 3 = -1
+ face 3 edge 4 = -1
+ face 4 edge 1 = 1
+ face 4 edge 2 = 1
+ face 4 edge 3 = -1
+ face 4 edge 4 = -1
+ face 5 edge 1 = 1
+ face 5 edge 2 = 1
+ face 5 edge 3 = 1
+ face 5 edge 4 = 1
+ face 6 edge 1 = 1
+ face 6 edge 2 = 1
+ face 6 edge 3 = -1
+ face 6 edge 4 = -1
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ arc lengths u : id 1 arc 2.274091
+ v : id 3 arc 8.879364
+ w : id 3 arc 0.314989
+ =====================
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 3 = -1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 5 edge 0 = 1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ sense of face 3 edge 3 = -1 
+ KNOT SEQUENCE FOR 0 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.081631	 K[2] = 0.183669	 K[3] = 0.285708	 K[4] = 0.387747	 K[5] = 0.489786	
+ K[6] = 0.591828	 K[7] = 0.693871	 K[8] = 0.795914	 K[9] = 0.897957	 K[10] = 1.000000	
+
+ KNOT SEQUENCE FOR 1 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.083806	 K[2] = 0.188359	 K[3] = 0.292621	 K[4] = 0.396503	 K[5] = 0.499880	
+ K[6] = 0.602580	 K[7] = 0.704357	 K[8] = 0.804870	 K[9] = 0.903637	 K[10] = 1.000000	
+
+ KNOT SEQUENCE FOR 2 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.183673	 K[2] = 0.387755	 K[3] = 0.591837	 K[4] = 0.795918	 K[5] = 1.000000	
+
+=====================
+----- RANGE u 0.000000  1.000000  v 0.000000  1.000000
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.000000, 1.000000]
+ edge 2 t in [0.289765, 0.918948]
+ edge 3 t in [0.000000, 1.000000]
+ edge 4 t in [0.266447, 0.886790]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+----- RANGE u 0.000000  1.000000  v 0.000000  1.000000
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.000000, 1.000000]
+ edge 2 t in [0.064250, 0.714839]
+ edge 3 t in [0.000000, 1.000000]
+ edge 4 t in [0.087502, 0.732491]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+----- RANGE u 0.494232  1.631190  v -0.042422  0.226613
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.289765, 0.918948]
+ edge 2 t in [0.517373, 0.643197]
+ edge 3 t in [0.064250, 0.714839]
+ edge 4 t in [-0.683261, -0.550447]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+----- RANGE u 0.927254  3.159277  v -0.078331  0.453226
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.266447, 0.886790]
+ edge 2 t in [-0.439553, -0.124564]
+ edge 3 t in [0.087502, 0.732491]
+ edge 4 t in [0.246550, 0.479964]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+----- RANGE u 0.055827  8.429807  v -1.080179  -0.420778
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.246550, 0.479964]
+ edge 2 t in [0.000000, 1.000000]
+ edge 3 t in [0.517373, 0.643197]
+ edge 4 t in [0.000000, 1.000000]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+----- RANGE u 0.059017  8.911637  v -1.120243  -0.298793
+ COMPARE RANGE TO EDGES 
+ edge 1 t in [0.000000, 1.000000]
+ edge 2 t in [-0.683261, -0.550447]
+ edge 3 t in [0.000000, 1.000000]
+ edge 4 t in [-0.439553, -0.124564]
+--------------
+ 
+ RANGE TRIM  u 0.000000  1.000000  v 0.000000  1.000000
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
+ OBJETC TYPE  12 (12 = surface 23 = face )  TYPE  8  ( 8 = BSpline  1 = LINE  6 = TRIMMED ) 
+ Call IRIT Function  BspsSrfNew 
