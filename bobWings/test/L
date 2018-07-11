@@ -1,0 +1,1337 @@
+ ONLY ACCEPTING CUBIC SPLINES 
+
+ Using EGADS  1.13 with OpenCASCADE 6.8.1
+
+ EG_open           = 0
+ EG_loadModel      = 0
+ EG_getTopology:     nBodies = 1
+ ============  face 1 edge 1   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.000000  1.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.000000  -> UVS 0.266447  0.000000 	 EDGE EVALUATE e(0.000000) = 2.517134  0.309927  -0.000000  AND SURFACE EVALUTE f ( 0.266447, 0.000000 ) = 2.517134  0.309927  0.000000
+ T 1.000000  -> UVS 0.289765  1.000000 	 EDGE EVALUATE e(1.000000) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 0.289765, 1.000000 ) = 5.698886  0.735914  -7.745967
+ T 0.500000  -> UVS 0.274341  0.511648 
+ EDGE EVALUATE e(0.500000) = 4.145071  0.526686  -3.963209  AND SURFACE EVALUTE f ( 0.274341, 0.511648 ) = 4.145071  0.526686  -3.963209
+ ============  face 1 edge 2   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.289765  0.918948 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.289765  -> UVS 0.289765  1.000000 	 EDGE EVALUATE e(0.289765) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 0.289765, 1.000000 ) = 5.698886  0.735914  -7.745967
+ T 0.918948  -> UVS 0.918948  1.000000 	 EDGE EVALUATE e(0.918948) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 0.918948, 1.000000 ) = 4.572663  0.775978  -7.745967
+ T 0.604356  -> UVS 0.604356  1.000000 
+ EDGE EVALUATE e(0.604356) = 5.136649  0.858902  -7.745967  AND SURFACE EVALUTE f ( 0.604356, 1.000000 ) = 5.136649  0.858902  -7.745967
+ ============  face 1 edge 3   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 1.000000  0.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 1.000000  -> UVS 0.918948  1.000000 	 EDGE EVALUATE e(1.000000) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 0.918948, 1.000000 ) = 4.572663  0.775978  -7.745967
+ T 0.000000  -> UVS 0.886790  0.000000 	 EDGE EVALUATE e(0.000000) = 0.286771  0.269516  -0.000000  AND SURFACE EVALUTE f ( 0.886790, 0.000000 ) = 0.286771  0.269516  0.000000
+ T 0.500000  -> UVS 0.897966  0.510712 
+ EDGE EVALUATE e(0.500000) = 2.475628  0.527230  -3.955958  AND SURFACE EVALUTE f ( 0.897966, 0.510712 ) = 2.475628  0.527230  -3.955958
+ ============  face 1 edge 4   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.886790  0.266447 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.886790  -> UVS 0.886790  0.000000 	 EDGE EVALUATE e(0.886790) = 0.286771  0.269516  0.000000  AND SURFACE EVALUTE f ( 0.886790, 0.000000 ) = 0.286771  0.269516  0.000000
+ T 0.266447  -> UVS 0.266447  0.000000 	 EDGE EVALUATE e(0.266447) = 2.517134  0.309927  0.000000  AND SURFACE EVALUTE f ( 0.266447, 0.000000 ) = 2.517134  0.309927  0.000000
+ T 0.576618  -> UVS 0.576618  0.000000 
+ EDGE EVALUATE e(0.576618) = 1.394034  0.474536  0.000000  AND SURFACE EVALUTE f ( 0.576618, 0.000000 ) = 1.394034  0.474536  0.000000
+ ============  face 2 edge 1   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.479964  0.246550 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.479964  -> UVS 0.055827  -0.654192 	 EDGE EVALUATE e(0.479964) = 2.517134  0.309927  -0.000000  AND SURFACE EVALUTE f ( 0.055827, -0.654192 ) = 2.517134  0.309927  0.000000
+ T 0.246550  -> UVS 0.055827  -0.420778 	 EDGE EVALUATE e(0.246550) = 2.517134  0.076513  -0.000000  AND SURFACE EVALUTE f ( 0.055827, -0.420778 ) = 2.517134  0.076513  0.000000
+ T 0.363257  -> UVS 0.055827  -0.537485 
+ EDGE EVALUATE e(0.363257) = 2.517134  0.193220  -0.000000  AND SURFACE EVALUTE f ( 0.055827, -0.537485 ) = 2.517134  0.193220  0.000000
+ ============  face 2 edge 2   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.000000  1.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.000000  -> UVS 0.055827  -0.420778 	 EDGE EVALUATE e(0.000000) = 2.517134  0.076513  -0.000000  AND SURFACE EVALUTE f ( 0.055827, -0.420778 ) = 2.517134  0.076513  -0.000000
+ T 1.000000  -> UVS 8.429807  -0.954356 	 EDGE EVALUATE e(1.000000) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 8.429807, -0.954356 ) = 5.698886  0.610090  -7.745967
+ T 0.500000  -> UVS 4.328176  -0.692136 
+ EDGE EVALUATE e(0.500000) = 4.140443  0.347871  -3.951941  AND SURFACE EVALUTE f ( 4.328176, -0.692136 ) = 4.140443  0.347871  -3.951941
+ ============  face 2 edge 3   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.517373  0.643197 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.517373  -> UVS 8.429807  -0.954356 	 EDGE EVALUATE e(0.517373) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 8.429807, -0.954356 ) = 5.698886  0.610090  -7.745967
+ T 0.643197  -> UVS 8.429807  -1.080179 	 EDGE EVALUATE e(0.643197) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 8.429807, -1.080179 ) = 5.698886  0.735914  -7.745967
+ T 0.580285  -> UVS 8.429807  -1.017267 
+ EDGE EVALUATE e(0.580285) = 5.698886  0.673002  -7.745967  AND SURFACE EVALUTE f ( 8.429807, -1.017267 ) = 5.698886  0.673002  -7.745967
+ ============  face 2 edge 4   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 1.000000  0.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 1.000000  -> UVS 8.429807  -1.080179 	 EDGE EVALUATE e(1.000000) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 8.429807, -1.080179 ) = 5.698886  0.735914  -7.745967
+ T 0.000000  -> UVS 0.055827  -0.654192 	 EDGE EVALUATE e(0.000000) = 2.517134  0.309927  -0.000000  AND SURFACE EVALUTE f ( 0.055827, -0.654192 ) = 2.517134  0.309927  -0.000000
+ T 0.500000  -> UVS 4.340358  -0.870951 
+ EDGE EVALUATE e(0.500000) = 4.145071  0.526686  -3.963209  AND SURFACE EVALUTE f ( 4.340358, -0.870951 ) = 4.145071  0.526686  -3.963209
+ ============  face 3 edge 1   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.918948  0.289765 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.918948  -> UVS 1.631190  0.089776 	 EDGE EVALUATE e(0.918948) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 1.631190, 0.089776 ) = 4.572663  0.775978  -7.745967
+ T 0.289765  -> UVS 0.506336  0.158239 	 EDGE EVALUATE e(0.289765) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 0.506336, 0.158239 ) = 5.698886  0.735914  -7.745967
+ T 0.604356  -> UVS 1.077797  0.226570 
+ EDGE EVALUATE e(0.604356) = 5.136649  0.858902  -7.745967  AND SURFACE EVALUTE f ( 1.077797, 0.226570 ) = 5.136649  0.858902  -7.745967
+ ============  face 3 edge 2   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.643197  0.517373 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.643197  -> UVS 0.506336  0.158239 	 EDGE EVALUATE e(0.643197) = 5.698886  0.735914  -7.745967  AND SURFACE EVALUTE f ( 0.506336, 0.158239 ) = 5.698886  0.735914  -7.745967
+ T 0.517373  -> UVS 0.494232  0.032999 	 EDGE EVALUATE e(0.517373) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 0.494232, 0.032999 ) = 5.698886  0.610090  -7.745967
+ T 0.580285  -> UVS 0.500284  0.095619 
+ EDGE EVALUATE e(0.580285) = 5.698886  0.673002  -7.745967  AND SURFACE EVALUTE f ( 0.500284, 0.095619 ) = 5.698886  0.673002  -7.745967
+ ============  face 3 edge 3   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.714839  0.064250 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.714839  -> UVS 0.494232  0.032999 	 EDGE EVALUATE e(0.714839) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 0.494232, 0.032999 ) = 5.698886  0.610090  -7.745967
+ T 0.064250  -> UVS 1.618413  -0.042422 	 EDGE EVALUATE e(0.064250) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 1.618413, -0.042422 ) = 4.572663  0.643164  -7.745967
+ T 0.389545  -> UVS 1.058340  0.024991 
+ EDGE EVALUATE e(0.389545) = 5.136623  0.656386  -7.745967  AND SURFACE EVALUTE f ( 1.058340, 0.024991 ) = 5.136623  0.656386  -7.745967
+ ============  face 3 edge 4   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ -0.550447  -0.683261 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T -0.550447  -> UVS 1.618413  -0.042422 	 EDGE EVALUATE e(-0.550447) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 1.618413, -0.042422 ) = 4.572663  0.643164  -7.745967
+ T -0.683261  -> UVS 1.631190  0.089776 	 EDGE EVALUATE e(-0.683261) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 1.631190, 0.089776 ) = 4.572663  0.775978  -7.745967
+ T -0.616854  -> UVS 1.624802  0.023677 
+ EDGE EVALUATE e(-0.616854) = 4.572663  0.709571  -7.745967  AND SURFACE EVALUTE f ( 1.624802, 0.023677 ) = 4.572663  0.709571  -7.745967
+ ============  face 4 edge 1   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.000000  1.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.000000  -> UVS 8.911637  -0.613782 	 EDGE EVALUATE e(0.000000) = 0.286771  0.269516  -0.000000  AND SURFACE EVALUTE f ( 8.911637, -0.613782 ) = 0.286771  0.269516  -0.000000
+ T 1.000000  -> UVS 0.059017  -1.120243 	 EDGE EVALUATE e(1.000000) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 0.059017, -1.120243 ) = 4.572663  0.775978  -7.745967
+ T 0.500000  -> UVS 4.390498  -0.871495 
+ EDGE EVALUATE e(0.500000) = 2.475628  0.527230  -3.955958  AND SURFACE EVALUTE f ( 4.390498, -0.871495 ) = 2.475628  0.527230  -3.955958
+ ============  face 4 edge 2   =======================
+
+    SIGNED (1 ) TMIN MAX = [ -0.683261  -0.550447 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T -0.683261  -> UVS 0.059017  -1.120243 	 EDGE EVALUATE e(-0.683261) = 4.572663  0.775978  -7.745967  AND SURFACE EVALUTE f ( 0.059017, -1.120243 ) = 4.572663  0.775978  -7.745967
+ T -0.550447  -> UVS 0.059017  -0.987429 	 EDGE EVALUATE e(-0.550447) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 0.059017, -0.987429 ) = 4.572663  0.643164  -7.745967
+ T -0.616854  -> UVS 0.059017  -1.053836 
+ EDGE EVALUATE e(-0.616854) = 4.572663  0.709571  -7.745967  AND SURFACE EVALUTE f ( 0.059017, -1.053836 ) = 4.572663  0.709571  -7.745967
+ ============  face 4 edge 3   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 1.000000  0.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 1.000000  -> UVS 0.059017  -0.987429 	 EDGE EVALUATE e(1.000000) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 0.059017, -0.987429 ) = 4.572663  0.643164  -7.745967
+ T 0.000000  -> UVS 8.911637  -0.298793 	 EDGE EVALUATE e(0.000000) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 8.911637, -0.298793 ) = 0.286771  -0.045473  0.000000
+ T 0.500000  -> UVS 4.395055  -0.648640 
+ EDGE EVALUATE e(0.500000) = 2.473421  0.304375  -3.951970  AND SURFACE EVALUTE f ( 4.395055, -0.648640 ) = 2.473421  0.304375  -3.951970
+ ============  face 4 edge 4   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ -0.124564  -0.439553 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T -0.124564  -> UVS 8.911637  -0.298793 	 EDGE EVALUATE e(-0.124564) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 8.911637, -0.298793 ) = 0.286771  -0.045473  0.000000
+ T -0.439553  -> UVS 8.911637  -0.613782 	 EDGE EVALUATE e(-0.439553) = 0.286771  0.269516  0.000000  AND SURFACE EVALUTE f ( 8.911637, -0.613782 ) = 0.286771  0.269516  0.000000
+ T -0.282059  -> UVS 8.911637  -0.456287 
+ EDGE EVALUATE e(-0.282059) = 0.286771  0.112022  0.000000  AND SURFACE EVALUTE f ( 8.911637, -0.456287 ) = 0.286771  0.112022  0.000000
+ ============  face 5 edge 1   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.266447  0.886790 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.266447  -> UVS 0.929373  0.297308 	 EDGE EVALUATE e(0.266447) = 2.517134  0.309927  0.000000  AND SURFACE EVALUTE f ( 0.929373, 0.297308 ) = 2.517134  0.309927  0.000000
+ T 0.886790  -> UVS 3.159277  0.236645 	 EDGE EVALUATE e(0.886790) = 0.286771  0.269516  0.000000  AND SURFACE EVALUTE f ( 3.159277, 0.236645 ) = 0.286771  0.269516  0.000000
+ T 0.576618  -> UVS 2.053923  0.451711 
+ EDGE EVALUATE e(0.576618) = 1.394034  0.474536  0.000000  AND SURFACE EVALUTE f ( 2.053923, 0.451711 ) = 1.394034  0.474536  0.000000
+ ============  face 5 edge 2   =======================
+
+    SIGNED (1 ) TMIN MAX = [ -0.439553  -0.124564 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T -0.439553  -> UVS 3.159277  0.236645 	 EDGE EVALUATE e(-0.439553) = 0.286771  0.269516  0.000000  AND SURFACE EVALUTE f ( 3.159277, 0.236645 ) = 0.286771  0.269516  0.000000
+ T -0.124564  -> UVS 3.156417  -0.078331 	 EDGE EVALUATE e(-0.124564) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 3.156417, -0.078331 ) = 0.286771  -0.045473  0.000000
+ T -0.282059  -> UVS 3.157847  0.079157 
+ EDGE EVALUATE e(-0.282059) = 0.286771  0.112022  0.000000  AND SURFACE EVALUTE f ( 3.157847, 0.079157 ) = 0.286771  0.112022  0.000000
+ ============  face 5 edge 3   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.087502  0.732491 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.087502  -> UVS 3.156417  -0.078331 	 EDGE EVALUATE e(0.087502) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 3.156417, -0.078331 ) = 0.286771  -0.045473  0.000000
+ T 0.732491  -> UVS 0.927254  0.063904 	 EDGE EVALUATE e(0.732491) = 2.517134  0.076513  0.000000  AND SURFACE EVALUTE f ( 0.927254, 0.063904 ) = 2.517134  0.076513  0.000000
+ T 0.409997  -> UVS 2.045815  0.053679 
+ EDGE EVALUATE e(0.409997) = 1.398526  0.076447  0.000000  AND SURFACE EVALUTE f ( 2.045815, 0.053679 ) = 1.398526  0.076447  0.000000
+ ============  face 5 edge 4   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.246550  0.479964 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.246550  -> UVS 0.927254  0.063904 	 EDGE EVALUATE e(0.246550) = 2.517134  0.076513  -0.000000  AND SURFACE EVALUTE f ( 0.927254, 0.063904 ) = 2.517134  0.076513  0.000000
+ T 0.479964  -> UVS 0.929373  0.297308 	 EDGE EVALUATE e(0.479964) = 2.517134  0.309927  -0.000000  AND SURFACE EVALUTE f ( 0.929373, 0.297308 ) = 2.517134  0.309927  0.000000
+ T 0.363257  -> UVS 0.928314  0.180606 
+ EDGE EVALUATE e(0.363257) = 2.517134  0.193220  -0.000000  AND SURFACE EVALUTE f ( 0.928314, 0.180606 ) = 2.517134  0.193220  0.000000
+ ============  face 6 edge 1   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.000000  1.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.000000  -> UVS 0.087502  0.000000 	 EDGE EVALUATE e(0.000000) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 0.087502, 0.000000 ) = 0.286771  -0.045473  0.000000
+ T 1.000000  -> UVS 0.064250  1.000000 	 EDGE EVALUATE e(1.000000) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 0.064250, 1.000000 ) = 4.572663  0.643164  -7.745967
+ T 0.500000  -> UVS 0.079521  0.510197 
+ EDGE EVALUATE e(0.500000) = 2.473421  0.304375  -3.951970  AND SURFACE EVALUTE f ( 0.079521, 0.510197 ) = 2.473421  0.304375  -3.951970
+ ============  face 6 edge 2   =======================
+
+    SIGNED (1 ) TMIN MAX = [ 0.064250  0.714839 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.064250  -> UVS 0.064250  1.000000 	 EDGE EVALUATE e(0.064250) = 4.572663  0.643164  -7.745967  AND SURFACE EVALUTE f ( 0.064250, 1.000000 ) = 4.572663  0.643164  -7.745967
+ T 0.714839  -> UVS 0.714839  1.000000 	 EDGE EVALUATE e(0.714839) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 0.714839, 1.000000 ) = 5.698886  0.610090  -7.745967
+ T 0.389545  -> UVS 0.389545  1.000000 
+ EDGE EVALUATE e(0.389545) = 5.136623  0.656386  -7.745967  AND SURFACE EVALUTE f ( 0.389545, 1.000000 ) = 5.136623  0.656386  -7.745967
+ ============  face 6 edge 3   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 1.000000  0.000000 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 1.000000  -> UVS 0.714839  1.000000 	 EDGE EVALUATE e(1.000000) = 5.698886  0.610090  -7.745967  AND SURFACE EVALUTE f ( 0.714839, 1.000000 ) = 5.698886  0.610090  -7.745967
+ T 0.000000  -> UVS 0.732491  0.000000 	 EDGE EVALUATE e(0.000000) = 2.517134  0.076513  -0.000000  AND SURFACE EVALUTE f ( 0.732491, 0.000000 ) = 2.517134  0.076513  0.000000
+ T 0.500000  -> UVS 0.726476  0.510193 
+ EDGE EVALUATE e(0.500000) = 4.140443  0.347871  -3.951941  AND SURFACE EVALUTE f ( 0.726476, 0.510193 ) = 4.140443  0.347871  -3.951941
+ ============  face 6 edge 4   =======================
+
+    SIGNED (-1 ) TMIN MAX = [ 0.732491  0.087502 ] 
+  Testing EG_getEdgeUV at tmin tmax and mind point 
+ T 0.732491  -> UVS 0.732491  0.000000 	 EDGE EVALUATE e(0.732491) = 2.517134  0.076513  0.000000  AND SURFACE EVALUTE f ( 0.732491, 0.000000 ) = 2.517134  0.076513  0.000000
+ T 0.087502  -> UVS 0.087502  0.000000 	 EDGE EVALUATE e(0.087502) = 0.286771  -0.045473  0.000000  AND SURFACE EVALUTE f ( 0.087502, 0.000000 ) = 0.286771  -0.045473  0.000000
+ T 0.409997  -> UVS 0.409997  0.000000 
+ EDGE EVALUATE e(0.409997) = 1.398526  0.076447  0.000000  AND SURFACE EVALUTE f ( 0.409997, 0.000000 ) = 1.398526  0.076447  0.000000
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ EGADS Warning: No projection on Curve (EG_inTopology)!
+ arc lengths u : id 1 arc 2.274091
+ v : id 3 arc 8.879364
+ w : id 3 arc 0.314989
+ =====================
+ sense of face 0 edge 3 = -1 
+ sense of face 0 edge 0 = 1 
+ sense of face 3 edge 3 = -1 
+ KNOT SEQUENCE FOR 0 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.081634	 K[2] = 0.183677	 K[3] = 0.285720	 K[4] = 0.387763	 K[5] = 0.489806	
+ K[6] = 0.591846	 K[7] = 0.693884	 K[8] = 0.795923	 K[9] = 0.897962	 K[10] = 1.000000	
+
+ KNOT SEQUENCE FOR 1 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.083806	 K[2] = 0.188359	 K[3] = 0.292621	 K[4] = 0.396503	 K[5] = 0.499880	
+ K[6] = 0.602580	 K[7] = 0.704357	 K[8] = 0.804870	 K[9] = 0.903637	 K[10] = 1.000000	
+
+ KNOT SEQUENCE FOR 2 DIR 
+ K[0] = 0.000000	
+ K[1] = 0.183673	 K[2] = 0.387755	 K[3] = 0.591837	 K[4] = 0.795918	 K[5] = 1.000000	
+
+=====================
+ AT FACE 0 WE HAVE EDGES e1 = 3 e2 = 0 e3 = 1  e4 = 2
+ RANGE FOR EDGE 3 = [ 0.886790   0.266447 ] 
+ RANGE FOR EDGE 1 = [ 0.289765   0.918948 ] 
+ i = 0 
+ EDGE 1  t 0.886790  -> uv 0.886790 0.000000
+ EDGE 3  t 0.289765  -> uv 0.289765 1.000000
+ i = 1 
+ EDGE 1  t 0.836149  -> uv 0.836149 0.000000
+ EDGE 3  t 0.341127  -> uv 0.341127 1.000000
+ i = 2 
+ EDGE 1  t 0.772847  -> uv 0.772847 0.000000
+ EDGE 3  t 0.405331  -> uv 0.405331 1.000000
+ i = 3 
+ EDGE 1  t 0.709546  -> uv 0.709546 0.000000
+ EDGE 3  t 0.469535  -> uv 0.469535 1.000000
+ i = 4 
+ EDGE 1  t 0.646244  -> uv 0.646244 0.000000
+ EDGE 3  t 0.533739  -> uv 0.533739 1.000000
+ i = 5 
+ EDGE 1  t 0.582942  -> uv 0.582942 0.000000
+ EDGE 3  t 0.597942  -> uv 0.597942 1.000000
+ i = 6 
+ EDGE 1  t 0.519643  -> uv 0.519643 0.000000
+ EDGE 3  t 0.662144  -> uv 0.662144 1.000000
+ i = 7 
+ EDGE 1  t 0.456344  -> uv 0.456344 0.000000
+ EDGE 3  t 0.726345  -> uv 0.726345 1.000000
+ i = 8 
+ EDGE 1  t 0.393044  -> uv 0.393044 0.000000
+ EDGE 3  t 0.790547  -> uv 0.790547 1.000000
+ i = 9 
+ EDGE 1  t 0.329746  -> uv 0.329746 0.000000
+ EDGE 3  t 0.854748  -> uv 0.854748 1.000000
+ i = 10 
+ EDGE 1  t 0.266447  -> uv 0.266447 0.000000
+ EDGE 3  t 0.918948  -> uv 0.918948 1.000000
+ RANGE FOR EDGE 0 = [ 0.000000   1.000000 ] 
+ RANGE FOR EDGE 2 = [ 1.000000   0.000000 ] 
+ EDGE 2  t 0.000000  -> uv 0.266447 0.000000
+ EDGE 4  t 1.000000  -> uv 0.918948 1.000000
+ EDGE 2  t 0.083806  -> uv 0.267476 0.086345
+ EDGE 4  t 0.916194  -> uv 0.914333 0.921196
+ EDGE 2  t 0.188359  -> uv 0.268897 0.193824
+ EDGE 4  t 0.811641  -> uv 0.909302 0.820528
+ EDGE 2  t 0.292621  -> uv 0.270494 0.300660
+ EDGE 4  t 0.707379  -> uv 0.904970 0.718179
+ EDGE 2  t 0.396503  -> uv 0.272296 0.406653
+ EDGE 4  t 0.603497  -> uv 0.901225 0.614775
+ EDGE 2  t 0.499880  -> uv 0.274339 0.511527
+ EDGE 4  t 0.500120  -> uv 0.897970 0.510833
+ EDGE 2  t 0.602580  -> uv 0.276666 0.614904
+ EDGE 4  t 0.397420  -> uv 0.895126 0.406810
+ EDGE 2  t 0.704357  -> uv 0.279324 0.716263
+ EDGE 4  t 0.295643  -> uv 0.892632 0.303159
+ EDGE 2  t 0.804870  -> uv 0.282365 0.814895
+ EDGE 4  t 0.195130  -> uv 0.890436 0.200380
+ EDGE 2  t 0.903637  -> uv 0.285835 0.909866
+ EDGE 4  t 0.096363  -> uv 0.888498 0.099073
+ EDGE 2  t 1.000000  -> uv 0.289765 1.000000
+ EDGE 4  t 0.000000  -> uv 0.886790 0.000000
+ USING EDGES 
+ T[0][0] = 0.886790  0.000000
+ T[0][1] = 0.836149  0.000000
+ T[0][2] = 0.772847  0.000000
+ T[0][3] = 0.709546  0.000000
+ T[0][4] = 0.646244  0.000000
+ T[0][5] = 0.582942  0.000000
+ T[0][6] = 0.519643  0.000000
+ T[0][7] = 0.456344  0.000000
+ T[0][8] = 0.393044  0.000000
+ T[0][9] = 0.329746  0.000000
+ T[0][10] = 0.266447  0.000000
+
+ T[1][0] = 0.266447  0.000000
+ T[1][1] = 0.267476  0.086345
+ T[1][2] = 0.268897  0.193824
+ T[1][3] = 0.270494  0.300660
+ T[1][4] = 0.272296  0.406653
+ T[1][5] = 0.274339  0.511527
+ T[1][6] = 0.276666  0.614904
+ T[1][7] = 0.279324  0.716263
+ T[1][8] = 0.282365  0.814895
+ T[1][9] = 0.285835  0.909866
+ T[1][10] = 0.289765  1.000000
+
+ T[2][0] = 0.289765  1.000000
+ T[2][1] = 0.341127  1.000000
+ T[2][2] = 0.405331  1.000000
+ T[2][3] = 0.469535  1.000000
+ T[2][4] = 0.533739  1.000000
+ T[2][5] = 0.597942  1.000000
+ T[2][6] = 0.662144  1.000000
+ T[2][7] = 0.726345  1.000000
+ T[2][8] = 0.790547  1.000000
+ T[2][9] = 0.854748  1.000000
+ T[2][10] = 0.918948  1.000000
+
+ T[3][0] = 0.918948  1.000000
+ T[3][1] = 0.914333  0.921196
+ T[3][2] = 0.909302  0.820528
+ T[3][3] = 0.904970  0.718179
+ T[3][4] = 0.901225  0.614775
+ T[3][5] = 0.897970  0.510833
+ T[3][6] = 0.895126  0.406810
+ T[3][7] = 0.892632  0.303159
+ T[3][8] = 0.890436  0.200380
+ T[3][9] = 0.888498  0.099073
+ T[3][10] = 0.886790  0.000000
+
+ NEW ROW -> COPY EDGE COORD j k = 0 ( = 2*11 * 0 + 0 (0) -> UV 0.886790  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 1 ( = 2*11 * 0 + 1 (1) -> UV 0.836149  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 2 ( = 2*11 * 0 + 2 (2) -> UV 0.772847  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 3 ( = 2*11 * 0 + 3 (3) -> UV 0.709546  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 4 ( = 2*11 * 0 + 4 (4) -> UV 0.646244  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 5 ( = 2*11 * 0 + 5 (5) -> UV 0.582942  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 6 ( = 2*11 * 0 + 6 (6) -> UV 0.519643  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 7 ( = 2*11 * 0 + 7 (7) -> UV 0.456344  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 8 ( = 2*11 * 0 + 8 (8) -> UV 0.393044  0.000000  
+ NEW COL -> COPY FIRST EDGE j k = 9 ( = 2*11 * 0 + 9 (9) -> UV 0.329746  0.000000  
+ COPY LAST POS IN ROW j k = 10 ( = 2*11 * 0 + 10 (10) -> UV 0.266447  0.000000  
+ NEW ROW -> COPY EDGE COORD j k = 11 ( = 2*11 * 1 + 0 (22) -> UV 0.888498  0.099073  
+ USING FOR k = 12  ( i 1 j 1 ) POINTS AT ii= 1 iiOpp = 10 jj 1  jjOpp 10
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 13  ( i 2 j 1 ) POINTS AT ii= 2 iiOpp = 9 jj 1  jjOpp 10
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 14  ( i 3 j 1 ) POINTS AT ii= 3 iiOpp = 8 jj 1  jjOpp 10
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 15  ( i 4 j 1 ) POINTS AT ii= 4 iiOpp = 7 jj 1  jjOpp 10
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 16  ( i 5 j 1 ) POINTS AT ii= 5 iiOpp = 6 jj 1  jjOpp 10
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 17  ( i 6 j 1 ) POINTS AT ii= 6 iiOpp = 5 jj 1  jjOpp 10
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 18  ( i 7 j 1 ) POINTS AT ii= 7 iiOpp = 4 jj 1  jjOpp 10
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 19  ( i 8 j 1 ) POINTS AT ii= 8 iiOpp = 3 jj 1  jjOpp 10
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ USING FOR k = 20  ( i 9 j 1 ) POINTS AT ii= 9 iiOpp = 2 jj 1  jjOpp 10
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.267476  0.086345  right 0.888498  0.099073 
+
+ COPY LAST POS IN ROW j k = 21 ( = 2*11 * 1 + 10 (32) -> UV 0.267476  0.086345  
+ NEW ROW -> COPY EDGE COORD j k = 22 ( = 2*11 * 2 + 0 (44) -> UV 0.890436  0.200380  
+ USING FOR k = 23  ( i 1 j 2 ) POINTS AT ii= 1 iiOpp = 10 jj 2  jjOpp 9
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 24  ( i 2 j 2 ) POINTS AT ii= 2 iiOpp = 9 jj 2  jjOpp 9
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 25  ( i 3 j 2 ) POINTS AT ii= 3 iiOpp = 8 jj 2  jjOpp 9
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 26  ( i 4 j 2 ) POINTS AT ii= 4 iiOpp = 7 jj 2  jjOpp 9
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 27  ( i 5 j 2 ) POINTS AT ii= 5 iiOpp = 6 jj 2  jjOpp 9
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 28  ( i 6 j 2 ) POINTS AT ii= 6 iiOpp = 5 jj 2  jjOpp 9
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 29  ( i 7 j 2 ) POINTS AT ii= 7 iiOpp = 4 jj 2  jjOpp 9
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 30  ( i 8 j 2 ) POINTS AT ii= 8 iiOpp = 3 jj 2  jjOpp 9
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ USING FOR k = 31  ( i 9 j 2 ) POINTS AT ii= 9 iiOpp = 2 jj 2  jjOpp 9
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.268897  0.193824  right 0.890436  0.200380 
+
+ COPY LAST POS IN ROW j k = 32 ( = 2*11 * 2 + 10 (54) -> UV 0.268897  0.193824  
+ NEW ROW -> COPY EDGE COORD j k = 33 ( = 2*11 * 3 + 0 (66) -> UV 0.892632  0.303159  
+ USING FOR k = 34  ( i 1 j 3 ) POINTS AT ii= 1 iiOpp = 10 jj 3  jjOpp 8
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 35  ( i 2 j 3 ) POINTS AT ii= 2 iiOpp = 9 jj 3  jjOpp 8
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 36  ( i 3 j 3 ) POINTS AT ii= 3 iiOpp = 8 jj 3  jjOpp 8
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 37  ( i 4 j 3 ) POINTS AT ii= 4 iiOpp = 7 jj 3  jjOpp 8
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 38  ( i 5 j 3 ) POINTS AT ii= 5 iiOpp = 6 jj 3  jjOpp 8
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 39  ( i 6 j 3 ) POINTS AT ii= 6 iiOpp = 5 jj 3  jjOpp 8
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 40  ( i 7 j 3 ) POINTS AT ii= 7 iiOpp = 4 jj 3  jjOpp 8
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 41  ( i 8 j 3 ) POINTS AT ii= 8 iiOpp = 3 jj 3  jjOpp 8
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ USING FOR k = 42  ( i 9 j 3 ) POINTS AT ii= 9 iiOpp = 2 jj 3  jjOpp 8
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.270494  0.300660  right 0.892632  0.303159 
+
+ COPY LAST POS IN ROW j k = 43 ( = 2*11 * 3 + 10 (76) -> UV 0.270494  0.300660  
+ NEW ROW -> COPY EDGE COORD j k = 44 ( = 2*11 * 4 + 0 (88) -> UV 0.895126  0.406810  
+ USING FOR k = 45  ( i 1 j 4 ) POINTS AT ii= 1 iiOpp = 10 jj 4  jjOpp 7
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 46  ( i 2 j 4 ) POINTS AT ii= 2 iiOpp = 9 jj 4  jjOpp 7
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 47  ( i 3 j 4 ) POINTS AT ii= 3 iiOpp = 8 jj 4  jjOpp 7
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 48  ( i 4 j 4 ) POINTS AT ii= 4 iiOpp = 7 jj 4  jjOpp 7
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 49  ( i 5 j 4 ) POINTS AT ii= 5 iiOpp = 6 jj 4  jjOpp 7
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 50  ( i 6 j 4 ) POINTS AT ii= 6 iiOpp = 5 jj 4  jjOpp 7
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 51  ( i 7 j 4 ) POINTS AT ii= 7 iiOpp = 4 jj 4  jjOpp 7
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 52  ( i 8 j 4 ) POINTS AT ii= 8 iiOpp = 3 jj 4  jjOpp 7
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ USING FOR k = 53  ( i 9 j 4 ) POINTS AT ii= 9 iiOpp = 2 jj 4  jjOpp 7
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.272296  0.406653  right 0.895126  0.406810 
+
+ COPY LAST POS IN ROW j k = 54 ( = 2*11 * 4 + 10 (98) -> UV 0.272296  0.406653  
+ NEW ROW -> COPY EDGE COORD j k = 55 ( = 2*11 * 5 + 0 (110) -> UV 0.897970  0.510833  
+ USING FOR k = 56  ( i 1 j 5 ) POINTS AT ii= 1 iiOpp = 10 jj 5  jjOpp 6
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 57  ( i 2 j 5 ) POINTS AT ii= 2 iiOpp = 9 jj 5  jjOpp 6
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 58  ( i 3 j 5 ) POINTS AT ii= 3 iiOpp = 8 jj 5  jjOpp 6
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 59  ( i 4 j 5 ) POINTS AT ii= 4 iiOpp = 7 jj 5  jjOpp 6
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 60  ( i 5 j 5 ) POINTS AT ii= 5 iiOpp = 6 jj 5  jjOpp 6
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 61  ( i 6 j 5 ) POINTS AT ii= 6 iiOpp = 5 jj 5  jjOpp 6
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 62  ( i 7 j 5 ) POINTS AT ii= 7 iiOpp = 4 jj 5  jjOpp 6
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 63  ( i 8 j 5 ) POINTS AT ii= 8 iiOpp = 3 jj 5  jjOpp 6
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ USING FOR k = 64  ( i 9 j 5 ) POINTS AT ii= 9 iiOpp = 2 jj 5  jjOpp 6
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.274339  0.511527  right 0.897970  0.510833 
+
+ COPY LAST POS IN ROW j k = 65 ( = 2*11 * 5 + 10 (120) -> UV 0.274339  0.511527  
+ NEW ROW -> COPY EDGE COORD j k = 66 ( = 2*11 * 6 + 0 (132) -> UV 0.901225  0.614775  
+ USING FOR k = 67  ( i 1 j 6 ) POINTS AT ii= 1 iiOpp = 10 jj 6  jjOpp 5
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 68  ( i 2 j 6 ) POINTS AT ii= 2 iiOpp = 9 jj 6  jjOpp 5
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 69  ( i 3 j 6 ) POINTS AT ii= 3 iiOpp = 8 jj 6  jjOpp 5
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 70  ( i 4 j 6 ) POINTS AT ii= 4 iiOpp = 7 jj 6  jjOpp 5
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 71  ( i 5 j 6 ) POINTS AT ii= 5 iiOpp = 6 jj 6  jjOpp 5
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 72  ( i 6 j 6 ) POINTS AT ii= 6 iiOpp = 5 jj 6  jjOpp 5
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 73  ( i 7 j 6 ) POINTS AT ii= 7 iiOpp = 4 jj 6  jjOpp 5
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 74  ( i 8 j 6 ) POINTS AT ii= 8 iiOpp = 3 jj 6  jjOpp 5
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ USING FOR k = 75  ( i 9 j 6 ) POINTS AT ii= 9 iiOpp = 2 jj 6  jjOpp 5
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.276666  0.614904  right 0.901225  0.614775 
+
+ COPY LAST POS IN ROW j k = 76 ( = 2*11 * 6 + 10 (142) -> UV 0.276666  0.614904  
+ NEW ROW -> COPY EDGE COORD j k = 77 ( = 2*11 * 7 + 0 (154) -> UV 0.904970  0.718179  
+ USING FOR k = 78  ( i 1 j 7 ) POINTS AT ii= 1 iiOpp = 10 jj 7  jjOpp 4
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 79  ( i 2 j 7 ) POINTS AT ii= 2 iiOpp = 9 jj 7  jjOpp 4
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 80  ( i 3 j 7 ) POINTS AT ii= 3 iiOpp = 8 jj 7  jjOpp 4
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 81  ( i 4 j 7 ) POINTS AT ii= 4 iiOpp = 7 jj 7  jjOpp 4
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 82  ( i 5 j 7 ) POINTS AT ii= 5 iiOpp = 6 jj 7  jjOpp 4
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 83  ( i 6 j 7 ) POINTS AT ii= 6 iiOpp = 5 jj 7  jjOpp 4
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 84  ( i 7 j 7 ) POINTS AT ii= 7 iiOpp = 4 jj 7  jjOpp 4
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 85  ( i 8 j 7 ) POINTS AT ii= 8 iiOpp = 3 jj 7  jjOpp 4
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ USING FOR k = 86  ( i 9 j 7 ) POINTS AT ii= 9 iiOpp = 2 jj 7  jjOpp 4
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.279324  0.716263  right 0.904970  0.718179 
+
+ COPY LAST POS IN ROW j k = 87 ( = 2*11 * 7 + 10 (164) -> UV 0.279324  0.716263  
+ NEW ROW -> COPY EDGE COORD j k = 88 ( = 2*11 * 8 + 0 (176) -> UV 0.909302  0.820528  
+ USING FOR k = 89  ( i 1 j 8 ) POINTS AT ii= 1 iiOpp = 10 jj 8  jjOpp 3
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 90  ( i 2 j 8 ) POINTS AT ii= 2 iiOpp = 9 jj 8  jjOpp 3
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 91  ( i 3 j 8 ) POINTS AT ii= 3 iiOpp = 8 jj 8  jjOpp 3
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 92  ( i 4 j 8 ) POINTS AT ii= 4 iiOpp = 7 jj 8  jjOpp 3
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 93  ( i 5 j 8 ) POINTS AT ii= 5 iiOpp = 6 jj 8  jjOpp 3
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 94  ( i 6 j 8 ) POINTS AT ii= 6 iiOpp = 5 jj 8  jjOpp 3
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 95  ( i 7 j 8 ) POINTS AT ii= 7 iiOpp = 4 jj 8  jjOpp 3
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 96  ( i 8 j 8 ) POINTS AT ii= 8 iiOpp = 3 jj 8  jjOpp 3
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ USING FOR k = 97  ( i 9 j 8 ) POINTS AT ii= 9 iiOpp = 2 jj 8  jjOpp 3
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.282365  0.814895  right 0.909302  0.820528 
+
+ COPY LAST POS IN ROW j k = 98 ( = 2*11 * 8 + 10 (186) -> UV 0.282365  0.814895  
+ NEW ROW -> COPY EDGE COORD j k = 99 ( = 2*11 * 9 + 0 (198) -> UV 0.914333  0.921196  
+ USING FOR k = 100  ( i 1 j 9 ) POINTS AT ii= 1 iiOpp = 10 jj 9  jjOpp 2
+
+ bottom = 0.836149  0.000000  top = 0.854748  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 101  ( i 2 j 9 ) POINTS AT ii= 2 iiOpp = 9 jj 9  jjOpp 2
+
+ bottom = 0.772847  0.000000  top = 0.790547  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 102  ( i 3 j 9 ) POINTS AT ii= 3 iiOpp = 8 jj 9  jjOpp 2
+
+ bottom = 0.709546  0.000000  top = 0.726345  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 103  ( i 4 j 9 ) POINTS AT ii= 4 iiOpp = 7 jj 9  jjOpp 2
+
+ bottom = 0.646244  0.000000  top = 0.662144  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 104  ( i 5 j 9 ) POINTS AT ii= 5 iiOpp = 6 jj 9  jjOpp 2
+
+ bottom = 0.582942  0.000000  top = 0.597942  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 105  ( i 6 j 9 ) POINTS AT ii= 6 iiOpp = 5 jj 9  jjOpp 2
+
+ bottom = 0.519643  0.000000  top = 0.533739  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 106  ( i 7 j 9 ) POINTS AT ii= 7 iiOpp = 4 jj 9  jjOpp 2
+
+ bottom = 0.456344  0.000000  top = 0.469535  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 107  ( i 8 j 9 ) POINTS AT ii= 8 iiOpp = 3 jj 9  jjOpp 2
+
+ bottom = 0.393044  0.000000  top = 0.405331  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ USING FOR k = 108  ( i 9 j 9 ) POINTS AT ii= 9 iiOpp = 2 jj 9  jjOpp 2
+
+ bottom = 0.329746  0.000000  top = 0.341127  1.000000  left 0.285835  0.909866  right 0.914333  0.921196 
+
+ COPY LAST POS IN ROW j k = 109 ( = 2*11 * 9 + 10 (208) -> UV 0.285835  0.909866  
+ NEW ROW -> COPY EDGE COORD j k = 110 ( = 2*11 * 10 + 0 (220) -> UV 0.918948  1.000000  
+ COPY LAST  EDGE j k = 111 ( = 2*11 * 10 + 1 (221) -> UV 0.854748  1.000000  
+ COPY LAST  EDGE j k = 112 ( = 2*11 * 10 + 2 (222) -> UV 0.790547  1.000000  
+ COPY LAST  EDGE j k = 113 ( = 2*11 * 10 + 3 (223) -> UV 0.726345  1.000000  
+ COPY LAST  EDGE j k = 114 ( = 2*11 * 10 + 4 (224) -> UV 0.662144  1.000000  
+ COPY LAST  EDGE j k = 115 ( = 2*11 * 10 + 5 (225) -> UV 0.597942  1.000000  
+ COPY LAST  EDGE j k = 116 ( = 2*11 * 10 + 6 (226) -> UV 0.533739  1.000000  
+ COPY LAST  EDGE j k = 117 ( = 2*11 * 10 + 7 (227) -> UV 0.469535  1.000000  
+ COPY LAST  EDGE j k = 118 ( = 2*11 * 10 + 8 (228) -> UV 0.405331  1.000000  
+ COPY LAST  EDGE j k = 119 ( = 2*11 * 10 + 9 (229) -> UV 0.341127  1.000000  
+ COPY LAST POS IN ROW j k = 120 ( = 2*11 * 10 + 10 (230) -> UV 0.289765  1.000000  
+ -----------------      TFI   UVS ---------------
+ GRID[0][0] = 0.886790  0.000000 
+ GRID[1][0] = 0.836149  0.000000 
+ GRID[2][0] = 0.772847  0.000000 
+ GRID[3][0] = 0.709546  0.000000 
+ GRID[4][0] = 0.646244  0.000000 
+ GRID[5][0] = 0.582942  0.000000 
+ GRID[6][0] = 0.519643  0.000000 
+ GRID[7][0] = 0.456344  0.000000 
+ GRID[8][0] = 0.393044  0.000000 
+ GRID[9][0] = 0.329746  0.000000 
+ GRID[10][0] = 0.266447  0.000000 
+
+ GRID[0][1] = 0.888498  0.099073 
+ GRID[1][1] = 0.440364  0.088659 
+ GRID[2][1] = 0.435049  0.179568 
+ GRID[3][1] = 0.429570  0.270477 
+ GRID[4][1] = 0.423928  0.361387 
+ GRID[5][1] = 0.418122  0.452296 
+ GRID[6][1] = 0.412152  0.543205 
+ GRID[7][1] = 0.406017  0.634114 
+ GRID[8][1] = 0.399718  0.725023 
+ GRID[9][1] = 0.393254  0.815932 
+ GRID[10][1] = 0.267476  0.086345 
+
+ GRID[0][2] = 0.890436  0.200380 
+ GRID[1][2] = 0.495606  0.104703 
+ GRID[2][2] = 0.490364  0.195612 
+ GRID[3][2] = 0.484958  0.286521 
+ GRID[4][2] = 0.479389  0.377430 
+ GRID[5][2] = 0.473656  0.468339 
+ GRID[6][2] = 0.467758  0.559248 
+ GRID[7][2] = 0.461697  0.650157 
+ GRID[8][2] = 0.455471  0.741066 
+ GRID[9][2] = 0.449080  0.831975 
+ GRID[10][2] = 0.268897  0.193824 
+
+ GRID[0][3] = 0.892632  0.303159 
+ GRID[1][3] = 0.551146  0.119750 
+ GRID[2][3] = 0.545977  0.210660 
+ GRID[3][3] = 0.540645  0.301569 
+ GRID[4][3] = 0.535149  0.392478 
+ GRID[5][3] = 0.529489  0.483387 
+ GRID[6][3] = 0.523664  0.574296 
+ GRID[7][3] = 0.517676  0.665205 
+ GRID[8][3] = 0.511523  0.756114 
+ GRID[9][3] = 0.505206  0.847023 
+ GRID[10][3] = 0.270494  0.300660 
+
+ GRID[0][4] = 0.895126  0.406810 
+ GRID[1][4] = 0.607044  0.133997 
+ GRID[2][4] = 0.601948  0.224906 
+ GRID[3][4] = 0.596688  0.315815 
+ GRID[4][4] = 0.591265  0.406724 
+ GRID[5][4] = 0.585678  0.497633 
+ GRID[6][4] = 0.579927  0.588542 
+ GRID[7][4] = 0.574012  0.679451 
+ GRID[8][4] = 0.567932  0.770361 
+ GRID[9][4] = 0.561687  0.861270 
+ GRID[10][4] = 0.272296  0.406653 
+
+ GRID[0][5] = 0.897970  0.510833 
+ GRID[1][5] = 0.663367  0.147512 
+ GRID[2][5] = 0.658344  0.238421 
+ GRID[3][5] = 0.653158  0.329330 
+ GRID[4][5] = 0.647808  0.420239 
+ GRID[5][5] = 0.642294  0.511148 
+ GRID[6][5] = 0.636616  0.602058 
+ GRID[7][5] = 0.630773  0.692967 
+ GRID[8][5] = 0.624766  0.783876 
+ GRID[9][5] = 0.618595  0.874785 
+ GRID[10][5] = 0.274339  0.511527 
+
+ GRID[0][6] = 0.901225  0.614775 
+ GRID[1][6] = 0.720201  0.160277 
+ GRID[2][6] = 0.715251  0.251186 
+ GRID[3][6] = 0.710138  0.342095 
+ GRID[4][6] = 0.704861  0.433004 
+ GRID[5][6] = 0.699420  0.523913 
+ GRID[6][6] = 0.693815  0.614822 
+ GRID[7][6] = 0.688046  0.705731 
+ GRID[8][6] = 0.682112  0.796640 
+ GRID[9][6] = 0.676014  0.887549 
+ GRID[10][6] = 0.276666  0.614904 
+
+ GRID[0][7] = 0.904970  0.718179 
+ GRID[1][7] = 0.777651  0.172202 
+ GRID[2][7] = 0.772774  0.263111 
+ GRID[3][7] = 0.767734  0.354020 
+ GRID[4][7] = 0.762530  0.444929 
+ GRID[5][7] = 0.757162  0.535838 
+ GRID[6][7] = 0.751630  0.626747 
+ GRID[7][7] = 0.745934  0.717656 
+ GRID[8][7] = 0.740073  0.808565 
+ GRID[9][7] = 0.734048  0.899474 
+ GRID[10][7] = 0.279324  0.716263 
+
+ GRID[0][8] = 0.909302  0.820528 
+ GRID[1][8] = 0.835847  0.183140 
+ GRID[2][8] = 0.831043  0.274049 
+ GRID[3][8] = 0.826076  0.364958 
+ GRID[4][8] = 0.820945  0.455867 
+ GRID[5][8] = 0.815651  0.546776 
+ GRID[6][8] = 0.810192  0.637686 
+ GRID[7][8] = 0.804568  0.728595 
+ GRID[8][8] = 0.798781  0.819504 
+ GRID[9][8] = 0.792829  0.910413 
+ GRID[10][8] = 0.282365  0.814895 
+
+ GRID[0][9] = 0.914333  0.921196 
+ GRID[1][9] = 0.894953  0.192893 
+ GRID[2][9] = 0.890222  0.283802 
+ GRID[3][9] = 0.885328  0.374711 
+ GRID[4][9] = 0.880270  0.465620 
+ GRID[5][9] = 0.875049  0.556530 
+ GRID[6][9] = 0.869663  0.647439 
+ GRID[7][9] = 0.864113  0.738348 
+ GRID[8][9] = 0.858398  0.829257 
+ GRID[9][9] = 0.852519  0.920166 
+ GRID[10][9] = 0.285835  0.909866 
+
+ GRID[0][10] = 0.918948  1.000000 
+ GRID[1][10] = 0.854748  1.000000 
+ GRID[2][10] = 0.790547  1.000000 
+ GRID[3][10] = 0.726345  1.000000 
+ GRID[4][10] = 0.662144  1.000000 
+ GRID[5][10] = 0.597942  1.000000 
+ GRID[6][10] = 0.533739  1.000000 
+ GRID[7][10] = 0.469535  1.000000 
+ GRID[8][10] = 0.405331  1.000000 
+ GRID[9][10] = 0.341127  1.000000 
+ GRID[10][10] = 0.289765  1.000000 
+
+ -----------------      TFI   UVS ---------------
+ UV 0 0 = 0.886790 0.000000 	
+ UV 0 1 = 0.836149 0.000000 	
+ UV 0 2 = 0.772847 0.000000 	
+ UV 0 3 = 0.709546 0.000000 	
+ UV 0 4 = 0.646244 0.000000 	
+ UV 0 5 = 0.582942 0.000000 	
+ UV 0 6 = 0.519643 0.000000 	
+ UV 0 7 = 0.456344 0.000000 	
+ UV 0 8 = 0.393044 0.000000 	
+ UV 0 9 = 0.329746 0.000000 	
+ UV 0 10 = 0.266447 0.000000 	
+
+ UV 1 0 = 0.888498 0.099073 	
+ UV 1 1 = 0.440364 0.088659 	
+ UV 1 2 = 0.435049 0.179568 	
+ UV 1 3 = 0.429570 0.270477 	
+ UV 1 4 = 0.423928 0.361387 	
+ UV 1 5 = 0.418122 0.452296 	
+ UV 1 6 = 0.412152 0.543205 	
+ UV 1 7 = 0.406017 0.634114 	
+ UV 1 8 = 0.399718 0.725023 	
+ UV 1 9 = 0.393254 0.815932 	
+ UV 1 10 = 0.267476 0.086345 	
+
+ UV 2 0 = 0.890436 0.200380 	
+ UV 2 1 = 0.495606 0.104703 	
+ UV 2 2 = 0.490364 0.195612 	
+ UV 2 3 = 0.484958 0.286521 	
+ UV 2 4 = 0.479389 0.377430 	
+ UV 2 5 = 0.473656 0.468339 	
+ UV 2 6 = 0.467758 0.559248 	
+ UV 2 7 = 0.461697 0.650157 	
+ UV 2 8 = 0.455471 0.741066 	
+ UV 2 9 = 0.449080 0.831975 	
+ UV 2 10 = 0.268897 0.193824 	
+
+ UV 3 0 = 0.892632 0.303159 	
+ UV 3 1 = 0.551146 0.119750 	
+ UV 3 2 = 0.545977 0.210660 	
+ UV 3 3 = 0.540645 0.301569 	
+ UV 3 4 = 0.535149 0.392478 	
+ UV 3 5 = 0.529489 0.483387 	
+ UV 3 6 = 0.523664 0.574296 	
+ UV 3 7 = 0.517676 0.665205 	
+ UV 3 8 = 0.511523 0.756114 	
+ UV 3 9 = 0.505206 0.847023 	
+ UV 3 10 = 0.270494 0.300660 	
+
+ UV 4 0 = 0.895126 0.406810 	
+ UV 4 1 = 0.607044 0.133997 	
+ UV 4 2 = 0.601948 0.224906 	
+ UV 4 3 = 0.596688 0.315815 	
+ UV 4 4 = 0.591265 0.406724 	
+ UV 4 5 = 0.585678 0.497633 	
+ UV 4 6 = 0.579927 0.588542 	
+ UV 4 7 = 0.574012 0.679451 	
+ UV 4 8 = 0.567932 0.770361 	
+ UV 4 9 = 0.561687 0.861270 	
+ UV 4 10 = 0.272296 0.406653 	
+
+ UV 5 0 = 0.897970 0.510833 	
+ UV 5 1 = 0.663367 0.147512 	
+ UV 5 2 = 0.658344 0.238421 	
+ UV 5 3 = 0.653158 0.329330 	
+ UV 5 4 = 0.647808 0.420239 	
+ UV 5 5 = 0.642294 0.511148 	
+ UV 5 6 = 0.636616 0.602058 	
+ UV 5 7 = 0.630773 0.692967 	
+ UV 5 8 = 0.624766 0.783876 	
+ UV 5 9 = 0.618595 0.874785 	
+ UV 5 10 = 0.274339 0.511527 	
+
+ UV 6 0 = 0.901225 0.614775 	
+ UV 6 1 = 0.720201 0.160277 	
+ UV 6 2 = 0.715251 0.251186 	
+ UV 6 3 = 0.710138 0.342095 	
+ UV 6 4 = 0.704861 0.433004 	
+ UV 6 5 = 0.699420 0.523913 	
+ UV 6 6 = 0.693815 0.614822 	
+ UV 6 7 = 0.688046 0.705731 	
+ UV 6 8 = 0.682112 0.796640 	
+ UV 6 9 = 0.676014 0.887549 	
+ UV 6 10 = 0.276666 0.614904 	
+
+ UV 7 0 = 0.904970 0.718179 	
+ UV 7 1 = 0.777651 0.172202 	
+ UV 7 2 = 0.772774 0.263111 	
+ UV 7 3 = 0.767734 0.354020 	
+ UV 7 4 = 0.762530 0.444929 	
+ UV 7 5 = 0.757162 0.535838 	
+ UV 7 6 = 0.751630 0.626747 	
+ UV 7 7 = 0.745934 0.717656 	
+ UV 7 8 = 0.740073 0.808565 	
+ UV 7 9 = 0.734048 0.899474 	
+ UV 7 10 = 0.279324 0.716263 	
+
+ UV 8 0 = 0.909302 0.820528 	
+ UV 8 1 = 0.835847 0.183140 	
+ UV 8 2 = 0.831043 0.274049 	
+ UV 8 3 = 0.826076 0.364958 	
+ UV 8 4 = 0.820945 0.455867 	
+ UV 8 5 = 0.815651 0.546776 	
+ UV 8 6 = 0.810192 0.637686 	
+ UV 8 7 = 0.804568 0.728595 	
+ UV 8 8 = 0.798781 0.819504 	
+ UV 8 9 = 0.792829 0.910413 	
+ UV 8 10 = 0.282365 0.814895 	
+
+ UV 9 0 = 0.914333 0.921196 	
+ UV 9 1 = 0.894953 0.192893 	
+ UV 9 2 = 0.890222 0.283802 	
+ UV 9 3 = 0.885328 0.374711 	
+ UV 9 4 = 0.880270 0.465620 	
+ UV 9 5 = 0.875049 0.556530 	
+ UV 9 6 = 0.869663 0.647439 	
+ UV 9 7 = 0.864113 0.738348 	
+ UV 9 8 = 0.858398 0.829257 	
+ UV 9 9 = 0.852519 0.920166 	
+ UV 9 10 = 0.285835 0.909866 	
+
+ UV 10 0 = 0.918948 1.000000 	
+ UV 10 1 = 0.854748 1.000000 	
+ UV 10 2 = 0.790547 1.000000 	
+ UV 10 3 = 0.726345 1.000000 	
+ UV 10 4 = 0.662144 1.000000 	
+ UV 10 5 = 0.597942 1.000000 	
+ UV 10 6 = 0.533739 1.000000 	
+ UV 10 7 = 0.469535 1.000000 	
+ UV 10 8 = 0.405331 1.000000 	
+ UV 10 9 = 0.341127 1.000000 	
+ UV 10 10 = 0.289765 1.000000 	
+
+  j 0  k 0 face 0
+ BEFORE 0.886790  0.000000  		 AFTER 0.886790  0.000000  
+ COPY TO FILE 
+0.000000 0.000000 0.886790 0.000000 		 0.286771	0.269516	0.000000
+ BEFORE 0.836149  0.000000  		 AFTER 0.836149  0.000000  
+ COPY TO FILE 
+0.081634 0.000000 0.836149 0.000000 		 0.457851	0.341387	0.000000
+ BEFORE 0.772847  0.000000  		 AFTER 0.772847  0.000000  
+ COPY TO FILE 
+0.183677 0.000000 0.772847 0.000000 		 0.680088	0.407793	0.000000
+ BEFORE 0.709546  0.000000  		 AFTER 0.709546  0.000000  
+ COPY TO FILE 
+0.285720 0.000000 0.709546 0.000000 		 0.907960	0.451210	0.000000
+ BEFORE 0.646244  0.000000  		 AFTER 0.646244  0.000000  
+ COPY TO FILE 
+0.387763 0.000000 0.646244 0.000000 		 1.138885	0.473350	0.000000
+ BEFORE 0.582942  0.000000  		 AFTER 0.582942  0.000000  
+ COPY TO FILE 
+0.489806 0.000000 0.582942 0.000000 		 1.370865	0.475352	0.000000
+ BEFORE 0.519643  0.000000  		 AFTER 0.519643  0.000000  
+ COPY TO FILE 
+0.591846 0.000000 0.519643 0.000000 		 1.602490	0.461793	0.000000
+ BEFORE 0.456344  0.000000  		 AFTER 0.456344  0.000000  
+ COPY TO FILE 
+0.693884 0.000000 0.456344 0.000000 		 1.833265	0.437782	0.000000
+ BEFORE 0.393044  0.000000  		 AFTER 0.393044  0.000000  
+ COPY TO FILE 
+0.795923 0.000000 0.393044 0.000000 		 2.062832	0.404109	0.000000
+ BEFORE 0.329746  0.000000  		 AFTER 0.329746  0.000000  
+ COPY TO FILE 
+0.897962 0.000000 0.329746 0.000000 		 2.290880	0.361346	0.000000
+ BEFORE 0.266447  0.000000  		 AFTER 0.266447  0.000000  
+ COPY TO FILE 
+1.000000 0.000000 0.266447 0.000000 		 2.517134	0.309927	0.000000
+ BEFORE 0.888498  0.099073  		 AFTER 0.888498  0.099073  
+ COPY TO FILE 
+0.000000 0.083806 0.888498 0.099073 		 0.711387	0.319422	-0.767416
+ BEFORE 0.440364  0.088659  		 AFTER 0.440364  0.088659  
+ COPY TO FILE 
+0.081634 0.083806 0.440364 0.088659 		 2.205341	0.463802	-0.686752
+ BEFORE 0.435049  0.179568  		 AFTER 0.435049  0.179568  
+ COPY TO FILE 
+0.183677 0.083806 0.435049 0.179568 		 2.544846	0.495712	-1.390931
+ BEFORE 0.429570  0.270477  		 AFTER 0.429570  0.270477  
+ COPY TO FILE 
+0.285720 0.083806 0.429570 0.270477 		 2.883072	0.527574	-2.095109
+ BEFORE 0.423928  0.361387  		 AFTER 0.423928  0.361387  
+ COPY TO FILE 
+0.387763 0.083806 0.423928 0.361387 		 3.219935	0.559397	-2.799288
+ BEFORE 0.418122  0.452296  		 AFTER 0.418122  0.452296  
+ COPY TO FILE 
+0.489806 0.083806 0.418122 0.452296 		 3.555355	0.591192	-3.503467
+ BEFORE 0.412152  0.543205  		 AFTER 0.412152  0.543205  
+ COPY TO FILE 
+0.591846 0.083806 0.412152 0.543205 		 3.889248	0.622969	-4.207646
+ BEFORE 0.406017  0.634114  		 AFTER 0.406017  0.634114  
+ COPY TO FILE 
+0.693884 0.083806 0.406017 0.634114 		 4.221534	0.654740	-4.911824
+ BEFORE 0.399718  0.725023  		 AFTER 0.399718  0.725023  
+ COPY TO FILE 
+0.795923 0.083806 0.399718 0.725023 		 4.552128	0.686518	-5.616003
+ BEFORE 0.393254  0.815932  		 AFTER 0.393254  0.815932  
+ COPY TO FILE 
+0.897962 0.083806 0.393254 0.815932 		 4.880948	0.718318	-6.320182
+ BEFORE 0.267476  0.086345  		 AFTER 0.267476  0.086345  
+ COPY TO FILE 
+1.000000 0.083806 0.267476 0.086345 		 2.791863	0.346417	-0.668826
+ BEFORE 0.890436  0.200380  		 AFTER 0.890436  0.200380  
+ COPY TO FILE 
+0.000000 0.188359 0.890436 0.200380 		 1.145577	0.370490	-1.552133
+ BEFORE 0.495606  0.104703  		 AFTER 0.495606  0.104703  
+ COPY TO FILE 
+0.081634 0.188359 0.495606 0.104703 		 2.071735	0.493251	-0.811022
+ BEFORE 0.490364  0.195612  		 AFTER 0.490364  0.195612  
+ COPY TO FILE 
+0.183677 0.188359 0.490364 0.195612 		 2.420195	0.525554	-1.515201
+ BEFORE 0.484958  0.286521  		 AFTER 0.484958  0.286521  
+ COPY TO FILE 
+0.285720 0.188359 0.484958 0.286521 		 2.767399	0.557761	-2.219380
+ BEFORE 0.479389  0.377430  		 AFTER 0.479389  0.377430  
+ COPY TO FILE 
+0.387763 0.188359 0.479389 0.377430 		 3.113261	0.589878	-2.923559
+ BEFORE 0.473656  0.468339  		 AFTER 0.473656  0.468339  
+ COPY TO FILE 
+0.489806 0.188359 0.473656 0.468339 		 3.457702	0.621912	-3.627737
+ BEFORE 0.467758  0.559248  		 AFTER 0.467758  0.559248  
+ COPY TO FILE 
+0.591846 0.188359 0.467758 0.559248 		 3.800637	0.653872	-4.331916
+ BEFORE 0.461697  0.650157  		 AFTER 0.461697  0.650157  
+ COPY TO FILE 
+0.693884 0.188359 0.461697 0.650157 		 4.141985	0.685765	-5.036095
+ BEFORE 0.455471  0.741066  		 AFTER 0.455471  0.741066  
+ COPY TO FILE 
+0.795923 0.188359 0.455471 0.741066 		 4.481662	0.717604	-5.740274
+ BEFORE 0.449080  0.831975  		 AFTER 0.449080  0.831975  
+ COPY TO FILE 
+0.897962 0.188359 0.449080 0.831975 		 4.819585	0.749398	-6.444453
+ BEFORE 0.268897  0.193824  		 AFTER 0.268897  0.193824  
+ COPY TO FILE 
+1.000000 0.188359 0.268897 0.193824 		 3.133833	0.391880	-1.501351
+ BEFORE 0.892632  0.303159  		 AFTER 0.892632  0.303159  
+ COPY TO FILE 
+0.000000 0.292621 0.892632 0.303159 		 1.586080	0.422345	-2.348262
+ BEFORE 0.551146  0.119750  		 AFTER 0.551146  0.119750  
+ COPY TO FILE 
+0.081634 0.292621 0.551146 0.119750 		 1.935895	0.515082	-0.927583
+ BEFORE 0.545977  0.210660  		 AFTER 0.545977  0.210660  
+ COPY TO FILE 
+0.183677 0.292621 0.545977 0.210660 		 2.293355	0.548143	-1.631762
+ BEFORE 0.540645  0.301569  		 AFTER 0.540645  0.301569  
+ COPY TO FILE 
+0.285720 0.292621 0.540645 0.301569 		 2.649584	0.581060	-2.335940
+ BEFORE 0.535149  0.392478  		 AFTER 0.535149  0.392478  
+ COPY TO FILE 
+0.387763 0.292621 0.535149 0.392478 		 3.004496	0.613837	-3.040119
+ BEFORE 0.529489  0.483387  		 AFTER 0.529489  0.483387  
+ COPY TO FILE 
+0.489806 0.292621 0.529489 0.483387 		 3.358010	0.646476	-3.744298
+ BEFORE 0.523664  0.574296  		 AFTER 0.523664  0.574296  
+ COPY TO FILE 
+0.591846 0.292621 0.523664 0.574296 		 3.710043	0.678981	-4.448477
+ BEFORE 0.517676  0.665205  		 AFTER 0.517676  0.665205  
+ COPY TO FILE 
+0.693884 0.292621 0.517676 0.665205 		 4.060512	0.711358	-5.152656
+ BEFORE 0.511523  0.756114  		 AFTER 0.511523  0.756114  
+ COPY TO FILE 
+0.795923 0.292621 0.511523 0.756114 		 4.409333	0.743613	-5.856834
+ BEFORE 0.505206  0.847023  		 AFTER 0.505206  0.847023  
+ COPY TO FILE 
+0.897962 0.292621 0.505206 0.847023 		 4.756423	0.775755	-6.561013
+ BEFORE 0.270494  0.300660  		 AFTER 0.270494  0.300660  
+ COPY TO FILE 
+1.000000 0.292621 0.270494 0.300660 		 3.473758	0.437125	-2.328899
+ BEFORE 0.895126  0.406810  		 AFTER 0.895126  0.406810  
+ COPY TO FILE 
+0.000000 0.396503 0.895126 0.406810 		 2.030316	0.474692	-3.151139
+ BEFORE 0.607044  0.133997  		 AFTER 0.607044  0.133997  
+ COPY TO FILE 
+0.081634 0.396503 0.607044 0.133997 		 1.798312	0.528171	-1.037936
+ BEFORE 0.601948  0.224906  		 AFTER 0.601948  0.224906  
+ COPY TO FILE 
+0.183677 0.396503 0.601948 0.224906 		 2.164812	0.562660	-1.742115
+ BEFORE 0.596688  0.315815  		 AFTER 0.596688  0.315815  
+ COPY TO FILE 
+0.285720 0.396503 0.596688 0.315815 		 2.530108	0.596886	-2.446293
+ BEFORE 0.591265  0.406724  		 AFTER 0.591265  0.406724  
+ COPY TO FILE 
+0.387763 0.396503 0.591265 0.406724 		 2.894115	0.630857	-3.150472
+ BEFORE 0.585678  0.497633  		 AFTER 0.585678  0.497633  
+ COPY TO FILE 
+0.489806 0.396503 0.585678 0.497633 		 3.256751	0.664584	-3.854651
+ BEFORE 0.579927  0.588542  		 AFTER 0.579927  0.588542  
+ COPY TO FILE 
+0.591846 0.396503 0.579927 0.588542 		 3.617932	0.698079	-4.558830
+ BEFORE 0.574012  0.679451  		 AFTER 0.574012  0.679451  
+ COPY TO FILE 
+0.693884 0.396503 0.574012 0.679451 		 3.977574	0.731356	-5.263009
+ BEFORE 0.567932  0.770361  		 AFTER 0.567932  0.770361  
+ COPY TO FILE 
+0.795923 0.396503 0.567932 0.770361 		 4.335593	0.764428	-5.967187
+ BEFORE 0.561687  0.861270  		 AFTER 0.561687  0.861270  
+ COPY TO FILE 
+0.897962 0.396503 0.561687 0.861270 		 4.691906	0.797306	-6.671366
+ BEFORE 0.272296  0.406653  		 AFTER 0.272296  0.406653  
+ COPY TO FILE 
+1.000000 0.396503 0.272296 0.406653 		 3.811001	0.482078	-3.149917
+ BEFORE 0.897970  0.510833  		 AFTER 0.897970  0.510833  
+ COPY TO FILE 
+0.000000 0.499880 0.897970 0.510833 		 2.476146	0.527291	-3.956894
+ BEFORE 0.663367  0.147512  		 AFTER 0.663367  0.147512  
+ COPY TO FILE 
+0.081634 0.499880 0.663367 0.147512 		 1.659269	0.527687	-1.142623
+ BEFORE 0.658344  0.238421  		 AFTER 0.658344  0.238421  
+ COPY TO FILE 
+0.183677 0.499880 0.658344 0.238421 		 2.034763	0.564581	-1.846802
+ BEFORE 0.653158  0.329330  		 AFTER 0.653158  0.329330  
+ COPY TO FILE 
+0.285720 0.499880 0.653158 0.329330 		 2.409096	0.601123	-2.550981
+ BEFORE 0.647808  0.420239  		 AFTER 0.647808  0.420239  
+ COPY TO FILE 
+0.387763 0.499880 0.647808 0.420239 		 2.782186	0.637312	-3.255160
+ BEFORE 0.642294  0.511148  		 AFTER 0.642294  0.511148  
+ COPY TO FILE 
+0.489806 0.499880 0.642294 0.511148 		 3.153946	0.673145	-3.959339
+ BEFORE 0.636616  0.602058  		 AFTER 0.636616  0.602058  
+ COPY TO FILE 
+0.591846 0.499880 0.636616 0.602058 		 3.524293	0.708621	-4.663517
+ BEFORE 0.630773  0.692967  		 AFTER 0.630773  0.692967  
+ COPY TO FILE 
+0.693884 0.499880 0.630773 0.692967 		 3.893142	0.743743	-5.367696
+ BEFORE 0.624766  0.783876  		 AFTER 0.624766  0.783876  
+ COPY TO FILE 
+0.795923 0.499880 0.624766 0.783876 		 4.260407	0.778514	-6.071875
+ BEFORE 0.618595  0.874785  		 AFTER 0.618595  0.874785  
+ COPY TO FILE 
+0.897962 0.499880 0.618595 0.874785 		 4.626001	0.812937	-6.776054
+ BEFORE 0.274339  0.511527  		 AFTER 0.274339  0.511527  
+ COPY TO FILE 
+1.000000 0.499880 0.274339 0.511527 		 4.144686	0.526634	-3.962272
+ BEFORE 0.901225  0.614775  		 AFTER 0.901225  0.614775  
+ COPY TO FILE 
+0.000000 0.602580 0.901225 0.614775 		 2.921630	0.579926	-4.762027
+ BEFORE 0.720201  0.160277  		 AFTER 0.720201  0.160277  
+ COPY TO FILE 
+0.081634 0.602580 0.720201 0.160277 		 1.519287	0.512142	-1.241497
+ BEFORE 0.715251  0.251186  		 AFTER 0.715251  0.251186  
+ COPY TO FILE 
+0.183677 0.602580 0.715251 0.251186 		 1.903647	0.552198	-1.945676
+ BEFORE 0.710138  0.342095  		 AFTER 0.710138  0.342095  
+ COPY TO FILE 
+0.285720 0.602580 0.710138 0.342095 		 2.286901	0.591814	-2.649854
+ BEFORE 0.704861  0.433004  		 AFTER 0.704861  0.433004  
+ COPY TO FILE 
+0.387763 0.602580 0.704861 0.433004 		 2.668963	0.630978	-3.354033
+ BEFORE 0.699420  0.523913  		 AFTER 0.699420  0.523913  
+ COPY TO FILE 
+0.489806 0.602580 0.699420 0.523913 		 3.049749	0.669680	-4.058212
+ BEFORE 0.693815  0.614822  		 AFTER 0.693815  0.614822  
+ COPY TO FILE 
+0.591846 0.602580 0.693815 0.614822 		 3.429176	0.707915	-4.762391
+ BEFORE 0.688046  0.705731  		 AFTER 0.688046  0.705731  
+ COPY TO FILE 
+0.693884 0.602580 0.688046 0.705731 		 3.807158	0.745678	-5.466570
+ BEFORE 0.682112  0.796640  		 AFTER 0.682112  0.796640  
+ COPY TO FILE 
+0.795923 0.602580 0.682112 0.796640 		 4.183608	0.782967	-6.170748
+ BEFORE 0.676014  0.887549  		 AFTER 0.676014  0.887549  
+ COPY TO FILE 
+0.897962 0.602580 0.676014 0.887549 		 4.558441	0.819781	-6.874927
+ BEFORE 0.276666  0.614904  		 AFTER 0.276666  0.614904  
+ COPY TO FILE 
+1.000000 0.602580 0.276666 0.614904 		 4.473607	0.570647	-4.763028
+ BEFORE 0.904970  0.718179  		 AFTER 0.904970  0.718179  
+ COPY TO FILE 
+0.000000 0.704357 0.904970 0.718179 		 3.364808	0.632380	-5.562989
+ BEFORE 0.777651  0.172202  		 AFTER 0.777651  0.172202  
+ COPY TO FILE 
+0.081634 0.704357 0.777651 0.172202 		 1.378825	0.480430	-1.333869
+ BEFORE 0.772774  0.263111  		 AFTER 0.772774  0.263111  
+ COPY TO FILE 
+0.183677 0.704357 0.772774 0.263111 		 1.771848	0.524502	-2.038047
+ BEFORE 0.767734  0.354020  		 AFTER 0.767734  0.354020  
+ COPY TO FILE 
+0.285720 0.704357 0.767734 0.354020 		 2.163829	0.568038	-2.742226
+ BEFORE 0.762530  0.444929  		 AFTER 0.762530  0.444929  
+ COPY TO FILE 
+0.387763 0.704357 0.762530 0.444929 		 2.554683	0.611020	-3.446405
+ BEFORE 0.757162  0.535838  		 AFTER 0.757162  0.535838  
+ COPY TO FILE 
+0.489806 0.704357 0.757162 0.535838 		 2.944327	0.653433	-4.150584
+ BEFORE 0.751630  0.626747  		 AFTER 0.751630  0.626747  
+ COPY TO FILE 
+0.591846 0.704357 0.751630 0.626747 		 3.332677	0.695264	-4.854763
+ BEFORE 0.745934  0.717656  		 AFTER 0.745934  0.717656  
+ COPY TO FILE 
+0.693884 0.704357 0.745934 0.717656 		 3.719650	0.736502	-5.558941
+ BEFORE 0.740073  0.808565  		 AFTER 0.740073  0.808565  
+ COPY TO FILE 
+0.795923 0.704357 0.740073 0.808565 		 4.105157	0.777138	-6.263120
+ BEFORE 0.734048  0.899474  		 AFTER 0.734048  0.899474  
+ COPY TO FILE 
+0.897962 0.704357 0.734048 0.899474 		 4.489114	0.817166	-6.967299
+ BEFORE 0.279324  0.716263  		 AFTER 0.279324  0.716263  
+ COPY TO FILE 
+1.000000 0.704357 0.279324 0.716263 		 4.796104	0.613912	-5.548148
+ BEFORE 0.909302  0.820528  		 AFTER 0.909302  0.820528  
+ COPY TO FILE 
+0.000000 0.804870 0.909302 0.820528 		 3.803465	0.684408	-6.355782
+ BEFORE 0.835847  0.183140  		 AFTER 0.835847  0.183140  
+ COPY TO FILE 
+0.081634 0.804870 0.835847 0.183140 		 1.238466	0.430796	-1.418597
+ BEFORE 0.831043  0.274049  		 AFTER 0.831043  0.274049  
+ COPY TO FILE 
+0.183677 0.804870 0.831043 0.274049 		 1.639822	0.479878	-2.122776
+ BEFORE 0.826076  0.364958  		 AFTER 0.826076  0.364958  
+ COPY TO FILE 
+0.285720 0.804870 0.826076 0.364958 		 2.040217	0.528318	-2.826955
+ BEFORE 0.820945  0.455867  		 AFTER 0.820945  0.455867  
+ COPY TO FILE 
+0.387763 0.804870 0.820945 0.455867 		 2.439569	0.576091	-3.531133
+ BEFORE 0.815651  0.546776  		 AFTER 0.815651  0.546776  
+ COPY TO FILE 
+0.489806 0.804870 0.815651 0.546776 		 2.837795	0.623176	-4.235312
+ BEFORE 0.810192  0.637686  		 AFTER 0.810192  0.637686  
+ COPY TO FILE 
+0.591846 0.804870 0.810192 0.637686 		 3.234813	0.669555	-4.939491
+ BEFORE 0.804568  0.728595  		 AFTER 0.804568  0.728595  
+ COPY TO FILE 
+0.693884 0.804870 0.804568 0.728595 		 3.630538	0.715208	-5.643670
+ BEFORE 0.798781  0.819504  		 AFTER 0.798781  0.819504  
+ COPY TO FILE 
+0.795923 0.804870 0.798781 0.819504 		 4.024883	0.760123	-6.347849
+ BEFORE 0.792829  0.910413  		 AFTER 0.792829  0.910413  
+ COPY TO FILE 
+0.897962 0.804870 0.792829 0.910413 		 4.417763	0.804285	-7.052027
+ BEFORE 0.282365  0.814895  		 AFTER 0.282365  0.814895  
+ COPY TO FILE 
+1.000000 0.804870 0.282365 0.814895 		 5.109928	0.656148	-6.312150
+ BEFORE 0.914333  0.921196  		 AFTER 0.914333  0.921196  
+ COPY TO FILE 
+0.000000 0.903637 0.914333 0.921196 		 4.234917	0.735711	-7.135553
+ BEFORE 0.894953  0.192893  		 AFTER 0.894953  0.192893  
+ COPY TO FILE 
+0.081634 0.903637 0.894953 0.192893 		 1.099633	0.359868	-1.494144
+ BEFORE 0.890222  0.283802  		 AFTER 0.890222  0.283802  
+ COPY TO FILE 
+0.183677 0.903637 0.890222 0.283802 		 1.508711	0.415278	-2.198323
+ BEFORE 0.885328  0.374711  		 AFTER 0.885328  0.374711  
+ COPY TO FILE 
+0.285720 0.903637 0.885328 0.374711 		 1.916953	0.469903	-2.902502
+ BEFORE 0.880270  0.465620  		 AFTER 0.880270  0.465620  
+ COPY TO FILE 
+0.387763 0.903637 0.880270 0.465620 		 2.324276	0.523716	-3.606681
+ BEFORE 0.875049  0.556530  		 AFTER 0.875049  0.556530  
+ COPY TO FILE 
+0.489806 0.903637 0.875049 0.556530 		 2.730596	0.576690	-4.310859
+ BEFORE 0.869663  0.647439  		 AFTER 0.869663  0.647439  
+ COPY TO FILE 
+0.591846 0.903637 0.869663 0.647439 		 3.135829	0.628801	-5.015038
+ BEFORE 0.864113  0.738348  		 AFTER 0.864113  0.738348  
+ COPY TO FILE 
+0.693884 0.903637 0.864113 0.738348 		 3.539889	0.680028	-5.719217
+ BEFORE 0.858398  0.829257  		 AFTER 0.858398  0.829257  
+ COPY TO FILE 
+0.795923 0.903637 0.858398 0.829257 		 3.942690	0.730351	-6.423396
+ BEFORE 0.852519  0.920166  		 AFTER 0.852519  0.920166  
+ COPY TO FILE 
+0.897962 0.903637 0.852519 0.920166 		 4.344143	0.779754	-7.127575
+ BEFORE 0.285835  0.909866  		 AFTER 0.285835  0.909866  
+ COPY TO FILE 
+1.000000 0.903637 0.285835 0.909866 		 5.412102	0.696976	-7.047792
+ BEFORE 0.918948  1.000000  		 AFTER 0.918948  1.000000  
+ COPY TO FILE 
+0.000000 1.000000 0.918948 1.000000 		 4.572663	0.775978	-7.745967
+ BEFORE 0.854748  1.000000  		 AFTER 0.854748  1.000000  
+ COPY TO FILE 
+0.081634 1.000000 0.854748 1.000000 		 4.682278	0.818451	-7.745967
+ BEFORE 0.790547  1.000000  		 AFTER 0.790547  1.000000  
+ COPY TO FILE 
+0.183677 1.000000 0.790547 1.000000 		 4.796653	0.845861	-7.745967
+ BEFORE 0.726345  1.000000  		 AFTER 0.726345  1.000000  
+ COPY TO FILE 
+0.285720 1.000000 0.726345 1.000000 		 4.913325	0.860838	-7.745967
+ BEFORE 0.662144  1.000000  		 AFTER 0.662144  1.000000  
+ COPY TO FILE 
+0.387763 1.000000 0.662144 1.000000 		 5.030904	0.864557	-7.745967
+ BEFORE 0.597942  1.000000  		 AFTER 0.597942  1.000000  
+ COPY TO FILE 
+0.489806 1.000000 0.597942 1.000000 		 5.148350	0.857758	-7.745967
+ BEFORE 0.533739  1.000000  		 AFTER 0.533739  1.000000  
+ COPY TO FILE 
+0.591846 1.000000 0.533739 1.000000 		 5.264966	0.842085	-7.745967
+ BEFORE 0.469535  1.000000  		 AFTER 0.469535  1.000000  
+ COPY TO FILE 
+0.693884 1.000000 0.469535 1.000000 		 5.380701	0.820845	-7.745967
+ BEFORE 0.405331  1.000000  		 AFTER 0.405331  1.000000  
+ COPY TO FILE 
+0.795923 1.000000 0.405331 1.000000 		 5.495413	0.794631	-7.745967
+ BEFORE 0.341127  1.000000  		 AFTER 0.341127  1.000000  
+ COPY TO FILE 
+0.897962 1.000000 0.341127 1.000000 		 5.608964	0.763773	-7.745967
+ BEFORE 0.289765  1.000000  		 AFTER 0.289765  1.000000  
+ COPY TO FILE 
+1.000000 1.000000 0.289765 1.000000 		 5.698886	0.735914	-7.745967
+ EGADS Info: 61 Objects, 90 Reference in Use (of 151) at Close!
