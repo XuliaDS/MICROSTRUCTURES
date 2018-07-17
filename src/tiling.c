@@ -118,7 +118,7 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
 	  norm[2] = partialDerMag ( TVfield -> DwDefMap, CBData -> TileIdxsMin[0], CBData -> TileIdxsMax[1], w );
 	  norm[3] = partialDerMag ( TVfield -> DwDefMap, CBData -> TileIdxsMax[0], CBData -> TileIdxsMax[1], w );
 	  for ( j = 0 ; j < 4; ++j )
-	    params[4 + i].Bndry[j] = norm[j] / TVfield ->fMax[i] * 0.25;
+	    params[4 + i].Bndry[j] = 0.1;//norm[j] / TVfield ->fMax[i] * 0.25;
 	  isBound = 1;
       }
   }
@@ -182,7 +182,8 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 }
 
 static int GenerateMicroStructure(int nu, int nv, int nw) {
-  char *ErrStr;
+  char *ErrStr,
+      *Names = defMap;
   int i, ErrLine, Handler;
   CagdRType
   KeepStackStep = 1,
@@ -193,13 +194,21 @@ static int GenerateMicroStructure(int nu, int nv, int nw) {
   UserMicroParamStruct MSParam;
   UserMicroRegularParamStruct *MSRegularParam;
   UserMicroLocalDataStruct LclData;
-
-  if ((TVMap = TrivTVReadFromFile(defMap,
+  printf(" CALL TOBJ FOR FIELD %s\n", defMap);
+  IPObjectStruct *TObj = IPGetDataFiles(&Names, 1, TRUE, TRUE);
+/*  if ((TVMap = TrivTVReadFromFile(defMap,
 				  &ErrStr, &ErrLine)) == NULL) {
       fprintf(stderr, "Failed to load deformation map\n");
       printf(" ERRSTR %d  ERRLINE %d  defmAP %s TVMPA %p \n", ErrLine, Handler, defMap, TVMap);
       return -1;
+  }*/
+  printf(" BUILT OBJECT %p\n", TObj);
+  if ( TObj == NULL ) {
+      printf(" error !!");
+      exit(1);
   }
+  TVMap    = TObj -> U.Trivars;
+  
   DeformMV = MvarCnvrtTVToMV(TVMap);
 
   /* Create the structure to be passed to the call back function. */
@@ -224,7 +233,8 @@ static int GenerateMicroStructure(int nu, int nv, int nw) {
   MSRegularParam -> Tile           = NULL;/* Tile is synthesized by call back func. */
   MSRegularParam -> TilingStepMode = TRUE;
   MSRegularParam -> MaxPolyEdgeLen = 0.1;
-
+  //MSRegularParam -> ApproxLowOrder = 4 ;
+  MSParam. ShellCapBits   = USER_MICRO_BIT_CAP_ALL;
   for (i = 0; i < 3; ++i) {
       MSRegularParam -> TilingSteps[i]    =
 	  (CagdRType *) IritMalloc(sizeof(CagdRType) * 2);

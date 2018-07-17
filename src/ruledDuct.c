@@ -20,7 +20,7 @@
 #endif
 #include "egads.h"
 
-//#define DEBUG
+#define DEBUG
 
 /* IRIT includes */
 #include "inc_irit/irit_sm.h"
@@ -119,39 +119,21 @@ EG_setGridTFI ( int n[], double **uv, double *grid ){
       yj = ((double) (j+1)) / ((double) n[1]);
       grid[2 * k     ] = uv[3][2* ( n[1] - 1 - j )    ];
       grid[2 * k + 1 ] = uv[3][2* ( n[1] - 1 - j ) + 1];
-<<<<<<< HEAD:src/ruledDuct.c
-=======
-      printf(" NEW ROW -> COPY EDGE COORD j k = %d ( = 2*%d * %d + %d (%d) -> UV %f  %f  \n",
-	     k,  n[0] , j, 0, 2 * n[0] * j + 0 , grid[2 * k], grid[2*k + 1] );
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
       k++;
       for (i = 1; i < n[0] - 1; i++) {
 	  if ( j == 0 ) {
 	      grid[2 * k    ] = uv[0][2*i    ];
 	      grid[2 * k + 1] = uv[0][2*i + 1];
-	      printf(" NEW COL -> COPY FIRST EDGE j k = %d ( = 2*%d * %d + %d (%d) -> UV %f  %f  \n",
-		     k,  n[0] , j, i, 2 * n[0] * j + i , grid[2 * k], grid[2*k + 1] );
 	      k++;
 	  }
 	  else if  ( j == n[1] - 1 ) {
 	      grid[2 * k    ] = uv[2][2 * ( n[0] - 1 - i )    ];
 	      grid[2 * k + 1] = uv[2][2 * ( n[0] - 1 - i ) + 1];
-<<<<<<< HEAD:src/ruledDuct.c
-=======
-	      printf(" COPY LAST  EDGE j k = %d ( = 2*%d * %d + %d (%d) -> UV %f  %f  \n",
-		     k, n[0] , j, i, 2 * n[0] * j + i , grid[2 * k], grid[2*k + 1] );
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 	      k++;
 	  }
 	  else {
 	      xi          = ((double) (i+1)) / ((double) n[0]);
-	      printf(" USING FOR k = %d  ( i %d j %d ) POINTS AT ii= %d iiOpp = %d jj %d  jjOpp %d\n",
-		     k, i,j, i, n[0] - i, j, n[1] - j);
-	      printf("\n bottom = %f  %f  top = %f  %f  left %f  %f  right %f  %f \n\n",
-		     uv[0][2 * i], uv[0][2 * i + 1],  uv[2][2 * ( n[0] - 1 - i ) ],  uv[2][2 * ( n[0] - 1 - i ) + 1 ],
-		     uv[1][2 * j], uv[1][2 * j + 1],  uv[3][2 * ( n[1] - 1 - j ) ],  uv[3][2 * ( n[1] - 1 - j ) +1 ]);
 	      for (d = 0 ; d < 2; d++) {
-<<<<<<< HEAD:src/ruledDuct.c
 		  grid[2 * k + d] = (1.0 - yj )  * uv[0][2 * i  + d  ] +
 		      (      yj ) * uv[2][2      * ( n[0] - 1 - i ) + d  ] +
 		      (1.0 - xi ) * uv[1][2      *              j   + d  ] +
@@ -160,57 +142,22 @@ EG_setGridTFI ( int n[], double **uv, double *grid ){
 		      (      xi ) * (       yj ) * uv[3][d] -
 		      (      xi ) * ( 1.0 - yj ) * uv[0][d] -
 		      (1.0 - xi ) * (       yj ) * uv[2][d];
-=======
-		  grid[2 * k + d] = (1.0 - xi ) * uv[0][2 *          i   + d  ] +
-		      (      xi ) * uv[2][2 * ( n[0] - 1 - i ) + d  ] +
-		      (1.0 - yj ) * uv[1][2 *          j   + d  ] +
-		      (      yj ) * uv[3][2 * ( n[1] - 1 - j ) + d  ] -
-		      (1.0 - xi ) * ( 1.0 - yj ) * uv[0][d] -
-		      (1.0 - xi ) * (       yj ) * uv[3][d] -
-		      (      xi ) * ( 1.0 - yj ) * uv[1][d] -
-		      (      xi ) * (       yj ) * uv[2][d];
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 	      }
 	      k++;
 	  }
       }
       grid[2 * k     ] = uv[1][2* j    ];
       grid[2 * k + 1 ] = uv[1][2* j + 1];
-      printf(" COPY LAST POS IN ROW j k = %d ( = 2*%d * %d + %d (%d) -> UV %f  %f  \n",
-	     k, n[0] , j, i, 2 * n[0] * j + i , grid[2 * k], grid[2*k + 1] );
       k++;
   }
-<<<<<<< HEAD:src/ruledDuct.c
-  /*printf(" -----------------      TFI   UVS ---------------\n");
-=======
-  printf(" -----------------      TFI   UVS ---------------\n");
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
-  for ( j = 0 ; j < n[1]; j++ ) {
-      for ( i = 0 ; i < n[0]; i++ ) {
-	  printf(" GRID[%d][%d] = %f  %f \n", i,j, grid[ 2 * ( j * n[0] + i )],  grid[ 2 * ( j * n[0] + i ) + 1]);
-      }
-      printf("\n");
-  }
-<<<<<<< HEAD:src/ruledDuct.c
-  printf(" -----------------      TFI   UVS ---------------\n");*/
-=======
-  printf(" -----------------      TFI   UVS ---------------\n");
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 }
-
 
 int main(int argc, char *argv[])
 {
   int        i, j, k, l, ibody, nbody, stat, oclass, mtype,  iface, nface, nloop, iedge, nedge, periodic, dims[4];
-<<<<<<< HEAD:src/ruledDuct.c
   int        *senses, **esenses = NULL, ce[2][4], idsF[4], idsO[4], nT[3], uvwID[3], splines_degree, n, e1, e2, e3, e4;
   double     data[18], trange[6][2 * 4], arc[ 2 ][ 4], **XYZ = NULL,  t[4],  **knots = NULL, *surf_grid = NULL, *uvTFI = NULL;
   double     dt, tEval[8], **tuvs = NULL, paux[4][500];
-=======
-  int        *senses, **esenses = NULL, ce[3][4], idsF[6], idsO[6], nT[3], uvwID[3], splines_degree, n, n1, n2, e1, e2, e3, e4;
-  double     data[18], trange[6][2 * 4], arc[3 ][ 4], **XYZ = NULL,  t[4],  **knots = NULL, *surf_data = NULL, *uvTFI = NULL, fuv[8];
-  double     dt, tEval[8], **tuvs = NULL;
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
   const char *OCCrev;
   char       fname[100], fnItd[100], *ErrStr;
   ego        model, geom, *bodies , *dum = NULL, eref,  context, *faces ,
@@ -274,10 +221,7 @@ int main(int argc, char *argv[])
       for ( iface = 0 ; iface < nface; iface++ ) {
 	  stat = EG_getTopology(faces[iface], &surf[iface], &oclass, &mtype,
 				data, &nloop, &loops, &senses);
-<<<<<<< HEAD:src/ruledDuct.c
-=======
 	  //stat = EG_convertToBSpline(faces[iface], &faces[iface]);
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 	  if ( stat != EGADS_SUCCESS) goto cleanup;
 	  if (nloop != 1) {
 	      printf(" Face %d has more than one Loop\n", iface+1);
@@ -300,70 +244,12 @@ int main(int argc, char *argv[])
 	      if ( stat != EGADS_SUCCESS) {
 		  printf(" EG_getRange = %d\n", stat);
 		  goto cleanup;
-<<<<<<< HEAD:src/ruledDuct.c
 	      }
-	      // if sign < ) reverse tmin tmax: This used to map correctly the knot sequeces to each edge.
 	      if ( esenses[iface][iedge] == -1 ) {
 		  t      [0                     ] = trange [ iface ][2 * iedge + 1];
 		  trange [ iface ][2 * iedge + 1] = trange [ iface ][2 * iedge    ];
 		  trange [ iface ][2 * iedge    ] = t      [0                     ];
 	      }
-
-=======
-	      }
-	      // if sign < ) reverse tmin tmax
-	      if ( esenses[iface][iedge] == -1 ) {
-		  t      [0                     ] = trange [ iface ][2 * iedge + 1];
-		  trange [ iface ][2 * iedge + 1] = trange [ iface ][2 * iedge    ];
-		  trange [ iface ][2 * iedge    ] = t      [0                     ];
-	      }
-	      printf (" ============  face %d edge %d   =======================\n\n " , iface + 1, iedge + 1);
-	      printf("   SIGNED (%d ) TMIN MAX = [ %f  %f ] \n" ,  esenses[iface][iedge],
-		     trange [ iface ][2 * iedge    ] , trange [ iface ][2 * iedge + 1]  );
-	      stat = EG_getEdgeUV ( faces [ iface ], edges [ iface ][ iedge ],
-				    esenses[ iface ][ iedge ], trange [ iface ][2 * iedge    ] , &t[0] ) ;
-	      if ( stat != EGADS_SUCCESS) {
-		  printf(" EG_getEdgeUV %d !!!\n", stat );
-	      }
-	      printf("  Testing EG_getEdgeUV at tmin tmax and mind point \n T %f  -> UVS %f  %f \t", trange [ iface ][2 * iedge    ] , t[0], t[1] ) ;
-	      EG_evaluate( edges[ iface ] [ iedge ], &trange [ iface ][2 * iedge ],data);
-	      printf(" EDGE EVALUATE e(%f) = %f  %f  %f ", trange [ iface ][2 * iedge ] , data[0], data[1], data[2]);
-
-	      EG_evaluate( faces[ iface ], t, data);
-	      printf(" AND SURFACE EVALUTE f ( %f, %f ) = %f  %f  %f\n",
-		     t[0], t[1], data[0], data[1], data[2]);
-
-
-	      stat = EG_getEdgeUV ( faces [ iface ], edges [ iface ][ iedge ],
-				    esenses[ iface ][ iedge ], trange [ iface ][2 * iedge  + 1  ] , &t[0] ) ;
-	      if ( stat != EGADS_SUCCESS) {
-		  printf(" EG_getEdgeUV %d !!!\n", stat );
-	      }
-
-	      printf(" T %f  -> UVS %f  %f \t", trange [ iface ][2 * iedge  + 1  ] , t[0], t[1] ) ;
-	      EG_evaluate( edges[ iface ] [ iedge ], &trange [ iface ][2 * iedge + 1 ],data);
-	      printf(" EDGE EVALUATE e(%f) = %f  %f  %f ", trange [ iface ][2 * iedge  + 1] , data[0], data[1], data[2]);
-
-	      EG_evaluate( faces[ iface ], t, data);
-	      printf(" AND SURFACE EVALUTE f ( %f, %f ) = %f  %f  %f\n",
-		     t[0], t[1], data[0], data[1], data[2]);
-	      t[3] = 0.5 *(  trange [ iface ][2 * iedge  + 1  ] +  trange [ iface ][2 * iedge   ] );
-	      stat = EG_getEdgeUV ( faces [ iface ], edges [ iface ][ iedge ],
-				    esenses[ iface ][ iedge ], t[3], &t[0] ) ;
-	      if ( stat != EGADS_SUCCESS) {
-		  printf(" EG_getEdgeUV %d !!!\n", stat );
-	      }
-
-	      printf(" T %f  -> UVS %f  %f \n", t[3] , t[0], t[1] ) ;
-	      EG_evaluate( edges[ iface ] [ iedge ], &t[3], data);
-	      printf(" EDGE EVALUATE e(%f) = %f  %f  %f ", t[3], data[0], data[1], data[2]);
-
-	      EG_evaluate( faces[ iface ], t, data);
-	      printf(" AND SURFACE EVALUTE f ( %f, %f ) = %f  %f  %f\n",
-		     t[0], t[1], data[0], data[1], data[2]);
-
-
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 	  }
       }
       /* FACE 0 = TOP   ; FACE 5 = BOTTOM
@@ -374,16 +260,9 @@ int main(int argc, char *argv[])
 
       idsO[0] = 2; idsO[1] = 4;  // front + back -> u dir
       idsO[2] = 1; idsO[3] = 3;  // right + left -> v dir
-<<<<<<< HEAD:src/ruledDuct.c
       /* We are going to set knot sequences for u, v: find the largest side in each direction */
       for ( i = 0 ; i < 2; ++i ) { // 0 = u, 1 = v
-	  /* face 1 (front or right)  */
-=======
-      idsO[4] = 2; idsO[5] = 4;  // front + back ( opp left right ) -> w dir
-
-      for ( i = 0 ; i < 3; ++i ) { // 0 = u, 1 = v, 2 = w
 	  /* face 1 */
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
 	  stat = EGADS_SUCCESS;
 	  for ( k = 0 ; k < 2; ++k ) {
 	      stat += EG_getCommonEdge ( 4, edges [ idsF[ 2 * i     ] ],
@@ -457,6 +336,7 @@ int main(int argc, char *argv[])
 	      printf(" setKnotSeq STAT %d !!!\n", stat ) ;
 	      goto cleanup;
 	  }
+
 #ifdef DEBUG
 	  printf("=====================\n");
 	  printf(" KNOT SEQUENCE FOR %d DIR \n", i);
@@ -476,7 +356,7 @@ int main(int argc, char *argv[])
       /* u x w = front and back   2,3 */
       /* v x w = left  and right  4,5 */
       idsF[0] = 0; idsF[1] = 5; idsF[2] = 2; idsF[3] = 4;
-      idsO[0] = 2; idsO[1] = 2; idsO[2] = 0; idsO[3] = 0;
+      idsO[0] = 1; idsO[1] = 1; idsO[2] = 0; idsO[3] = 0;
       /* vector containig the grid info along the four edges */
       tuvs    = (double **) EG_alloc (4 * sizeof ( double *));
       if ( tuvs == NULL) {
@@ -554,7 +434,6 @@ int main(int argc, char *argv[])
 		  }
 	      }
 	  }
-<<<<<<< HEAD:src/ruledDuct.c
 	  EG_free ( uvTFI );
 	  EG_free ( surf_grid );
 	  dims[0]   = nT[0] + 1;
@@ -570,16 +449,19 @@ int main(int argc, char *argv[])
 	  /*TFI Creates a uv grid using the four edges and the discretization along each edge */
 	  EG_setGridTFI ( dims, tuvs, uvTFI );
 	  /* now get physical coordinates */
+	  for ( l = 0 ; l <= nT[0] ; l++ ) {
 	  for ( i = 0 ; i <= nT[1] ; i++ ) {
-	      for ( l = 0 ; l <= nT[0] ; l++ ) {
-		  stat = EG_evaluate ( faces[ k ], &uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  ], data );
+	       stat = EG_evaluate ( faces[ k ], &uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  ], data );
 		  if ( stat != EGADS_SUCCESS ) {
 		      printf(" PROBLEM EVALUATING %f  %f  \n", uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  ], uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  + 1] );
 		      goto cleanup;
 		  }
-		  surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )     ] = data[0];
-		  surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )  + 1] = data[1];
-		  surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )  + 2] = data[2];
+		  /*surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )     ] = data[0];
+		  		  surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )  + 1] = data[1];
+		  		  surf_grid[ 3 * ( ( nT[0] + 1 ) * i + l )  + 2] = data[2];*/
+		  surf_grid[ 3 * ( ( nT[1] + 1 ) * l + i) ] = data[0];
+		  surf_grid[ 3 * ( ( nT[1] + 1 ) * l + i) + 1] = data[1];
+		  surf_grid[ 3 * ( ( nT[1] + 1 ) * l + i) + 2] = data[2];
 	      }
 	  }
 #ifdef DEBUG
@@ -603,190 +485,14 @@ int main(int argc, char *argv[])
 	  }
 	  fclose (fil);
 #endif
-	  stat =  EG_spline2dAppx ( context, 1 , knots[0], knots[1],
+	  stat =  EG_spline2dAppx ( context, 1 , knots[1], knots[0], 
 				    NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-				    nT[0] + 1, nT[1] + 1,  surf_grid, 1.E-05,
+				    nT[1] + 1, nT[0] + 1,  surf_grid, 1.E-05,
 				    &trimmed_surf[ k ] );
 	  if ( stat != EGADS_SUCCESS ) {
 	      printf(" EG_spline2dAppx %d !!!! \n", stat );
 	      goto cleanup;
 	  }
-#ifdef DEBUG
-	  snprintf(fname,100,  "trimmeddata_%d.txt", k );
-	  fil = fopen (fname, "w");
-	  if ( fil == NULL ) goto cleanup;
-	  fprintf(fil,"#cols 1,2,3 = new surface; cols 4,5,6 old surface \n");
-	  for ( i = 0 ; i <= nT[1] ; i++ ) { //v
-	      // evaluate at edge
-	      for ( l = 0 ; l <=  nT[0] ; l++ ) { //u
-		  EG_evaluate ( trimmed_surf[ k ], &uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  ], data ) ;
-		  if ( stat != EGADS_SUCCESS ) {
-		      printf(" POINT %f %f EG_EVALUATE %d \n", t[2], t[3], stat ) ;
-		      goto cleanup;
-=======
-	  for ( k = 0; k < 2; k++ ) {
-	      e1       =   ce[n1][ 2 * k + uvwID[n1]];
-	      e2       =   ce[n2][ 2 * k + uvwID[n2]];
-	      e3       = ( ce[n1][ 2 * k + uvwID[n1]] + 2 ) % 4;
-	      e4       = ( ce[n2][ 2 * k + uvwID[n2]] + 2 ) % 4;
-	      printf(" AT FACE %d WE HAVE EDGES e1 = %d e2 = %d e3 = %d  e4 = %d\n",
-		     idsF[ 2 * j + k ], e1, e2, e3, e4 ) ;
-	      tEval[0] = trange [ idsF[ 2 * j + k ] ] [ 2 * e1    ];
-	      tEval[1] = trange [ idsF[ 2 * j + k ] ] [ 2 * e1 + 1];
-	      tEval[2] = trange [ idsF[ 2 * j + k ] ] [ 2 * e3    ];
-	      tEval[3] = trange [ idsF[ 2 * j + k ] ] [ 2 * e3 + 1];
-
-	      tEval[4] = trange [ idsF[ 2 * j + k ] ] [ 2 * e2    ];
-	      tEval[5] = trange [ idsF[ 2 * j + k ] ] [ 2 * e2 + 1];
-	      tEval[6] = trange [ idsF[ 2 * j + k ] ] [ 2 * e4    ];
-	      tEval[7] = trange [ idsF[ 2 * j + k ] ] [ 2 * e4 + 1];
-	      tuvs     = (double **) EG_alloc (4 * sizeof ( double *));
-	      if ( tuvs == NULL) {
-		  stat = EGADS_MALLOC;
-		  goto cleanup;
-	      }
-	      for ( i = 0 ; i < 4; i++ ) {
-		  if ( i %2 == 0 ) tuvs[i] = (double *) EG_alloc ( (nT[n1] + 1) * 2 * sizeof (double ));
-		  else             tuvs[i] = (double *) EG_alloc ( (nT[n2] + 1) * 2 * sizeof (double ));
-		  if ( tuvs[i] == NULL ) {
-		      stat = EGADS_MALLOC;
-		      goto cleanup;
-		  }
-	      }
-	      // get corresponding UVs from t in edge
-	      printf(" RANGE FOR EDGE %d = [ %f   %f ] \n", e1, tEval[0], tEval[1]);
-	      printf(" RANGE FOR EDGE %d = [ %f   %f ] \n", e3,tEval[2], tEval[3]);
-	      for ( i = 0 ; i <= nT[n1] ; i++ ) { //v
-		  printf(" i = %d \n",i ) ;
-		  t[0] = tEval[0] * ( 1.0 - knots[ n1 ][i] ) + tEval[1] * knots[ n1 ][i];
-		  stat = EG_getEdgeUV ( faces [ idsF[ 2 * j + k] ], edges [ idsF[ 2 * j + k] ][ e1 ],
-					esenses[idsF[ 2 * j + k] ][e1], t[0], &tuvs[0][2 * i ]  );
-		  printf(" EDGE 1  t %f  -> uv %f %f\n", t[0], tuvs[0][2 * i], tuvs[0][2 * i + 1 ] );
-		  t[0] = tEval[2] * ( 1.0 - knots[ n1 ][i] ) + tEval[3] * knots[ n1 ][i];
-		  stat = EG_getEdgeUV ( faces [ idsF[ 2 * j + k] ], edges [ idsF[ 2 * j + k] ][ e3 ],
-					esenses[idsF[ 2 * j + k] ][ e3 ], t[0], &tuvs[2][2 * i ]  );
-		  printf(" EDGE 3  t %f  -> uv %f %f\n", t[0], tuvs[2][2 * i], tuvs[2][2 * i + 1 ] );
-	      }
-	      printf(" RANGE FOR EDGE %d = [ %f   %f ] \n", e2, tEval[4], tEval[5]);
-	      printf(" RANGE FOR EDGE %d = [ %f   %f ] \n", e4,tEval[6], tEval[7]);
-	      for ( i = 0 ; i <= nT[n2] ; i++ ) { //v
-		  t[0] = tEval[4] * ( 1.0 - knots[ n2 ][i] ) + tEval[5] * knots[ n2 ][i];
-		  stat = EG_getEdgeUV ( faces [ idsF[ 2 * j + k] ], edges [ idsF[ 2 * j + k] ][ e2 ],
-					esenses[idsF[ 2 * j + k] ][ e2 ], t[0], &tuvs[1][2 * i ]  );
-		  printf(" EDGE 2  t %f  -> uv %f %f\n", t[0], tuvs[1][2 * i], tuvs[1][2 * i + 1 ] );
-		  t[0] = tEval[6] * ( 1.0 - knots[ n2 ][i] ) + tEval[7] * knots[ n2 ][i];
-		  stat = EG_getEdgeUV ( faces [ idsF[ 2 * j + k] ], edges [ idsF[ 2 * j + k] ][ e4 ],
-					esenses[idsF[ 2 * j + k] ][ e4 ], t[0], &tuvs[3][2 * i ]  );
-		  printf(" EDGE 4  t %f  -> uv %f %f\n", t[0], tuvs[3][2 * i], tuvs[3][2 * i + 1 ] );
-	      }
-	      EG_free ( surf_data );
-	      surf_data = ( double * ) EG_alloc ( 3 * ( nT[n1] + 1 ) * ( nT[n2] + 1 ) * sizeof ( double ) ) ;
-	      if ( surf_data == NULL ) {
-		  stat = EGADS_MALLOC;
-		  goto cleanup;
-	      }
-	      dims[0] = nT[n1] + 1;
-	      dims[1] = nT[n2] + 1;
-	      dims[2] = nT[n1] + 1;
-	      dims[3] = nT[n2] + 1;
-	      EG_free ( uvTFI );
-	      uvTFI = ( double * ) EG_alloc ( 2 * ( nT[n1] + 1 ) * ( nT[n2] + 1 ) * sizeof ( double ) ) ;
-	      if ( uvTFI == NULL ) {
-		  stat = EGADS_MALLOC;
-		  goto cleanup;
-	      }
-	      printf(" USING EDGES \n");
-	      for ( l = 0 ; l < 4 ; l++ ) {
-		  if ( l %2 == 0 ) n = nT[n1];
-		  else             n = nT[n2];
-		  for ( i = 0 ; i <= n ; i++ ) {
-		      printf(" T[%d][%d] = %lf  %lf\n",l, i, tuvs[l][2 * i], tuvs[l][2 * i + 1]);
-		  }
-		  printf("\n");
-	      }
-	      EG_setGridTFI ( dims, tuvs, uvTFI );
-	      for ( i = 0 ; i <= nT[n2] ; i++ ) {
-		  for ( l = 0 ; l <= nT[n1] ; l++ ) {
-		      printf(" UV %d %d = %lf %lf \t", i, l, uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ], uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  + 1]);
-		      printf("\n");
-		  }
-		  printf("\n");
-	      }
-	      printf("  j %d  k %d face %d\n", j, k,idsF[ 2 * j + k] );
-	      snprintf(fname,100, "data_%d.txt", idsF[ 2 * j + k] );
-	      fil = fopen (fname, "w");
-	      if ( fil == NULL ) {
-		  printf(" I COULDN'T OPEN FILE = %p name %s\n", fil,  fname);
-		  stat = EGADS_MALLOC;
-		  goto cleanup;
-	      }
-	      for ( i = 0 ; i <= nT[n2] ; i++ ) {
-		  for ( l = 0 ; l <= nT[n1] ; l++ ) {
-		      printf(" BEFORE %f  %f  \t\t", uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ], uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  + 1]);
-		      stat = EG_evaluate ( faces[ idsF[ 2 * j + k] ], &uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ], data );
-		      if ( stat != EGADS_SUCCESS ) {
-			  printf(" PROBLEM EVALUATING %f  %f  \n", uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ], uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  + 1] );
-			  goto cleanup;
-		      }
-		      printf(" AFTER %f  %f  \n", uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ], uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  + 1]);
-		      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l )     ] = data[0];
-		      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l )  + 1] = data[1];
-		      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l )  + 2] = data[2];
-		      fprintf(fil, "%lf %lf %lf %lf \t\t %lf\t%lf\t%lf\n",knots[n1][l], knots[n2][i],
-			      uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ],uvTFI[2 * ( ( nT[n1] + 1 ) * i + l ) + 1 ],
-			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l )    ],
-			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l ) + 1],
-			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l ) + 2] );
-		      printf(" COPY TO FILE \n");
-		      printf("%lf %lf %lf %lf \t\t %lf\t%lf\t%lf\n",knots[n1][l], knots[n2][i],
-		      			      uvTFI[2 * ( ( nT[n1] + 1 ) * i + l )  ],uvTFI[2 * ( ( nT[n1] + 1 ) * i + l ) + 1 ],
-		      			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l )    ],
-		      			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l ) + 1],
-		      			      surf_data[ 3 * ( ( nT[n1] + 1 ) * i + l ) + 2] );
-		  }
-		  fprintf(fil,"\n\n");
-	      }
-	      fclose (fil);
-	      goto cleanup;
-	      stat =  EG_spline2dAppx ( context, 1 , knots[n1], knots[n2],
-					NULL, NULL, NULL,
-					NULL, NULL,
-					NULL, NULL,
-					nT[n1] + 1, nT[n2] + 1,  surf_data, 1.E-05,
-					&trimmed_surf[ idsF[ 2 * j + k ] ] );
-	      if ( stat != EGADS_SUCCESS ) goto cleanup;
-	      EG_getRange ( trimmed_surf[ idsF[ 2 * j + k ] ], &fuv[4], &periodic);
-	      printf(" \n RANGE TRIM  u %f  %f  v %f  %f\n", fuv[4], fuv[5], fuv[6], fuv[7]);
-	      snprintf(fname,100,  "trimmeddata_%d.txt", idsF[ 2 * j + k ]);
-	      fil = fopen (fname, "w");
-	      if ( fil == NULL ) goto cleanup;
-	      fprintf(fil,"#cols 1,2,3 = old surface; cols 4,5,6 new surface \n");
-	      for ( i = 0 ; i < n ; i++ ) { //v
-		  // evaluate at edge
-		  t[1] = fuv[2] * ( 1.0 - (double)i * dt ) + fuv[3] * (double)i * dt;
-		  t[3] = fuv[6] * ( 1.0 - (double)i * dt ) + fuv[7] * (double)i * dt;
-		  for ( l = 0 ; l < n ; l++ ) { //u
-		      t[0] = fuv[0] * ( 1.0 - (double)l * dt ) + fuv[1] * (double)l * dt;
-		      t[2] = fuv[4] * ( 1.0 - (double)l * dt ) + fuv[5] * (double)l * dt;
-		      EG_evaluate ( faces[ idsF[ 2 * j + k ] ], t, data ) ;
-		      fprintf(fil, "%lf\t%lf\t%lf\t", data[0], data[1], data[2]);
-		      EG_evaluate ( trimmed_surf[ idsF[ 2 * j + k ] ], &t[2], data ) ;
-		      fprintf(fil, "%lf\t%lf\t%lf\n", data[0], data[1], data[2]);
->>>>>>> e8bc3ed255b29edba6c97e005a660b8bfee3fe4b:bobWings/trimmingApproximation.c
-		  }
-		  fprintf(fil, "%lf\t%lf\t%lf\t", data[0], data[1], data[2]);
-		  stat = EG_evaluate ( faces[ k ], &uvTFI[2 * ( ( nT[0] + 1 ) * i + l )  ], data );
-		  if ( stat != EGADS_SUCCESS ) {
-		      printf(" POINT %f %f EG_EVALUATE %d \n", t[0], t[1], stat ) ;
-		      goto cleanup;
-		  }
-		  fprintf(fil, "%lf\t%lf\t%lf\n", data[0], data[1], data[2]);
-
-	      }
-	      fprintf(fil,"\n\n");
-	  }
-	  fclose (fil);
-#endif
       }
       /* Save a trimmed egas file */
       /* SAVE SURFACES FOR IRIT *.itd */
@@ -819,6 +525,7 @@ int main(int argc, char *argv[])
       printf("=========================================================\n");
       printf( " Designed a duct for %d x %d x %d tiles \n", nT[0], nT[1], nT[2] ) ;
       printf("=========================================================\n");
+      
       EG_free (IRITsurf);
   }
   cleanup:
