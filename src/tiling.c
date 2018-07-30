@@ -5,7 +5,6 @@
 #include "inc_irit/geom_lib.h"
 #include "inc_irit/cagd_lib.h"
 #include "inc_irit/user_lib.h"
-#include <nlopt.h>
 
 int CIRC  = 0;
 int BOUNDSKIN = 0 ;
@@ -26,6 +25,8 @@ typedef struct UserTotalMicroStruct {
   UserMicroLocalDataStruct LDS;
   int nTperKnot[3], nTperDir[3];
 } UserTotalMicroStruct ;
+
+
 
 static CagdRType setMaxVal(  TrivTVStruct  *TV, CagdRType *uvwMinMax ) {
   CagdRType *P3, uvw[3], max = 0.0, aux;
@@ -65,7 +66,6 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
   int i;
   switch (MS -> ObjType) {
     case IP_OBJ_LIST_OBJ:
-      printf(" HOL    TOTAL TILES ?  %d \n", IPListObjectLength(MS));
       for (i = 0; i < IPListObjectLength(MS); i++)
 	FlattenHierarchy2LinearList(IPListObjectGet(MS, i), LinMS);
       break;
@@ -73,8 +73,6 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
       IPListObjectAppend(LinMS, IPCopyObject(NULL, MS, TRUE));
       break;
   }
-  printf(" TOTAL TILES ?  %d \n", IPListObjectLength(LinMS));
-
 }
 
 static double partialDerMag ( TrivTVStruct *field, CagdRType u,  CagdRType v,  CagdRType w ) {
@@ -219,9 +217,6 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 }
 
 
-//double optimizeTiles (  unsinged n, double *uvw, /*@unused@*/ grad, void *CBdata   ) {
-
-
 
 void GenerateMicroStructure(int nu, int nv, int nw) {
   char *ErrStr;
@@ -300,26 +295,9 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
   IPFreeObject(MS);
   MS = LinMS;
   fprintf(stderr, "%d surfaces created\n", IPListObjectLength(MS));
-  for(IPObjectStruct *kk = MS; kk != NULL; kk = kk->Pnext)
-    {
-      TrivTVStruct *tv_list = kk->U.Trivars;
-      fprintf(stderr, "%d trivariates in this tile\n", CagdListLength(tv_list));
-
-    }
-  CagdBBoxStruct BBox;
-  CagdSrfStruct *BndrySrf[6];
-
-  TrivBndrySrfsFromTVToData( TVMap, FALSE, BndrySrf);
-  for (i = 0; i < 6; i++) {
-      CagdSrfBBox(BndrySrf[i], &BBox);
-      printf(" SURFACE %d BOUND BOX : %f %f  %f  %f  %f  %f \n",
-	     i, BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
-  }
-  MvarMVFree(DeformMV);
   UserMicroTileFree(MSRegularParam -> Tile);
   for (i = 0; i < 3; ++i)
     IritFree(MSRegularParam -> TilingSteps[i]);
-
   Handler = IPOpenDataFile(tiledName, FALSE, 1);
   IPPutObjectToHandler(Handler, MS);
   IPFreeObject(MS);

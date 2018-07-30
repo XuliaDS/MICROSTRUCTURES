@@ -25,9 +25,9 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.base.561317184" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.base">
 								<option id="gnu.c.compiler.option.include.paths.278435738" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
-									<listOptionValue builtIn="false" value="/home/julia/ESP/include"/>
-									<listOptionValue builtIn="false" value="/home/julia/IRIT"/>
-									<listOptionValue builtIn="false" value="/home/julia/IRIT/inc_irit"/>
+									<listOptionValue builtIn="false" value="/home/docampo/IRIT/inc_irit"/>
+									<listOptionValue builtIn="false" value="/home/docampo/IRIT"/>
+									<listOptionValue builtIn="false" value="/home/docampo/EngSketchPad/include"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1844978063" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -73,5 +73,9 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Default">
+			<resource resourceType="PROJECT" workspacePath="/MICROSTRUCTURES"/>
+		</configuration>
+	</storageModule>
 </cproject>

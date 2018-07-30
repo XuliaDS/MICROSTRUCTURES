@@ -11,7 +11,7 @@
 int CIRC  = 0;
 int BOUNDSKIN = 0 ;
 char tiledName[100], ductName[100];
-//#define DEBUG
+#define DEBUG
 #define EPS04  1.e-4
 
 typedef struct UserMicroLocalDataStruct { /* User specific data in CB funcs. */
@@ -74,8 +74,6 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
       IPListObjectAppend(LinMS, IPCopyObject(NULL, MS, TRUE));
       break;
   }
-  printf(" TOTAL TILES ?  %d \n", IPListObjectLength(LinMS));
-
 }
 
 static double partialDerMag ( TrivTVStruct *field, CagdRType u,  CagdRType v,  CagdRType w ) {
@@ -103,6 +101,12 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
   }
 
 #ifdef DEBUG
+  printf(" Tiles Coords %f  %f  %f  and %f  %f  %f\n",
+	 CBData -> TileIdxsMin[0],  CBData -> TileIdxsMin[1],  CBData -> TileIdxsMin[2],
+	 CBData -> TileIdxsMax[0],  CBData -> TileIdxsMax[1],  CBData -> TileIdxsMax[2]);
+  printf(" ORI Tiles Coords %f  %f  %f  and %f  %f  %f\n",
+	 CBData -> TileIdxsMinOrig[0],  CBData -> TileIdxsMinOrig[1],  CBData -> TileIdxsMinOrig[2],
+	 CBData -> TileIdxsMaxOrig[0],  CBData -> TileIdxsMaxOrig[1],  CBData -> TileIdxsMaxOrig[2]);
   printf(" GLOBAL COORDINATES: %f  %f  %f  and  %f  %f  %f\n",
 	 uvw_min[0], uvw_min[1], uvw_min[2], uvw_max[0], uvw_max[1], uvw_max[2] );
 #endif
@@ -174,9 +178,8 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
   // BOUND BOX [0,1]^3 //
 
 #ifdef DEBUG
-  printf("\n==========================  Tile[%d,%d,%d] ([ %d, %d, %d] )  ===========\n",
+  printf("\n==========================  Tile[%d,%d,%d]  ===========\n",
 	 CBData -> TileIdxs[0],  CBData -> TileIdxs[1],  CBData -> TileIdxs[2]);
-
   printf(" Locally from (%0.2f, %0.2f %0.2f) to (%0.2f, %0.2f, %.2f)\t || globally from (%0.2f, %0.2f %0.2f) to (%0.2f, %0.2f, %.2f)\n",
 	 CBData -> TileIdxsMin[0],
 	 CBData -> TileIdxsMin[1],
@@ -210,52 +213,49 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 	  UVWparams[i].Bndry[2],    UVWparams[i].Bndry[3],
 	  UVWparams[i].OuterRadius, UVWparams[i].InnerRadius );
   }
-  printf("==========================================================================\n",
+  printf("==========================================================================\n");
 #endif
-	 Tile = UserMicro3DCrossTile(&UVWparams[0], &UVWparams[1], &UVWparams[2],
-				     &UVWparams[3], &UVWparams[4], &UVWparams[5] );
+  Tile = UserMicro3DCrossTile(&UVWparams[0], &UVWparams[1], &UVWparams[2],
+			      &UVWparams[3], &UVWparams[4], &UVWparams[5] );
   Tile = GMTransformObject(Tile, CBData -> Mat);
 
   return Tile;
 }
 
 
-//double optimizeTiles (  unsinged n, double *uvw, /*@unused@*/ grad, void *CBdata   ) {
 
-
-
-CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int nu, int nv, int nw ) {
-  int i, j , k,  m, res1, kU, kV, kW, tU, tV, tW;
+CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int tilesPerKnot[3] ) {
+  int ijk[3], m, n, d, res1, knotsPerDir[3],totalTiles[3];
+  CagdRType knotCoords[2], tileCoords[2];
   CagdBBoxStruct BBox;
-  kU   = TVAR -> ULength + TVAR -> UOrder;
-  kV   = TVAR -> VLength + TVAR -> VOrder;
-  kW   = TVAR -> WLength + TVAR -> WOrder;
-  tU   = nu * ( kU - 2 * ( TVAR -> UOrder ) );
-  tV   = nv * ( kV - 2 * ( TVAR -> VOrder ) );
-  tW   = nw * ( kW - 2 * ( TVAR -> WOrder ) );
+  knotsPerDir[0] = TVAR -> ULength - TVAR -> UOrder + 1 ;
+  knotsPerDir[1] = TVAR -> VLength - TVAR -> VOrder + 1 ;
+  knotsPerDir[2] = TVAR -> WLength - TVAR -> WOrder + 1 ;
+  totalTiles [0] = tilesPerKnot[0] * knotsPerDir[0];
+  totalTiles [1] = tilesPerKnot[1] * knotsPerDir[1];
+  totalTiles [2] = tilesPerKnot[2] * knotsPerDir[2];
+  ijk        [2] = id / ( totalTiles [0] * totalTiles [1]);
+  res1           = id % ( totalTiles [0] * totalTiles [1]);
+  ijk        [1] = res1 / totalTiles [0] ;
+  ijk        [0] = res1 % totalTiles [0] ;
+  // Get tile and knot coordinates:
+  for ( d = 0 ; d < 3; d++ ) {
+      m = ijk[d] / tilesPerKnot[d];
+      n = ijk[d] % tilesPerKnot[d];
+      tileCoords[0] = (double)  m      / (double) knotsPerDir[d]; // min
+      tileCoords[1] = (double) (m + 1) / (double) knotsPerDir[d]; // max
+      knotCoords[0] = (double)  n      / (double) tilesPerKnot[d]; // min
+      knotCoords[1] = (double) (n + 1) / (double) tilesPerKnot[d]; // max
+      BBox.Min  [d] = (1.0 - knotCoords[0] ) * tileCoords[0] + knotCoords[0] * tileCoords[1];
+      BBox.Max  [d] = (1.0 - knotCoords[1] ) * tileCoords[0] + knotCoords[1] * tileCoords[1];
+#ifdef DEBUGG
+      printf(" DIR  %d : TILE %d of knot %d \n", d, n, m ) ;
+      printf(" TILE COORDS %f  %f   KNOT COORDS %f  %f \n",
+	     tileCoords[0], tileCoords[1], knotCoords[0], knotCoords[1] );
+      printf(" DUCT COORDINATES %f  %f  \n", BBox.Min[d], BBox.Max[d] );
+#endif
 
-  nuv  = tU * tV;
-  k    = id / ( tU * tV );
-  res1 = id % ( tU * tV ) ;
-  j    = res1 / tU;
-  i    = res1 % tU;
-  printf(" i = %d, j = %d, k = %d NUM  %d = %d ? \n", i, j, k, i + j * tU + k * tU * tV, id );
-
-  m    = i%nu;
-  BBOx.Min[0] = TVAR -> UKnotVector[ TVAR -> Order + k ]  printf(" TOT KNOTS IN TRIVAR %d  %d  %d \n", kU, kV, kW );
-  for ( i = 0 ; i < kU; i++ ) printf(" K %d = %f\n",
-				     i,TVAR -> UKnotVector[i]);
-  for ( i = 0 ; i < kV; i++ ) printf(" K %d = %f\n",
-				     i,TVAR -> VKnotVector[i]);
-  for ( i = 0 ; i < kW; i++ ) printf(" K %d = %f\n",
-				     i,TVAR -> WKnotVector[i]);
-
-  printf(" SPLINE ORDER  %d  %d  %d \n", TVAR -> UOrder, TVAR -> VOrder, TVAR -> WOrder );
-  printf( " TOTAL TILES %d  %d  %d \n", tU, tV, tW ) ;
-
-
-
-
+  }
   return BBox;
 }
 
@@ -266,7 +266,7 @@ CagdBType UPeriodic, VPeriodic, WPeriodic;   /* Valid only for B-spline. */
 CagdRType *Points[CAGD_MAX_PT_SIZE];     /* Pointer on each axis vector. */
 CagdRType *UKnotVector, *VKnotVector, *WKnotVector;
 
-void GenerateMicroStructure(int nu, int nv, int nw) {
+void GenerateMicroStructure(int tilesPerKnot[3] ) {
   char *ErrStr;
   const char *name = ductName;
   int i, ErrLine, Handler;
@@ -318,16 +318,16 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
   MSRegularParam -> Tile           = NULL;/* Tile is synthesized by call back func. */
   MSRegularParam -> TilingStepMode = TRUE;
   MSRegularParam -> MaxPolyEdgeLen = 0.1;
-  MSParam.ApproxLowOrder           = 3 ;
+  MSParam.ApproxLowOrder           = 4 ;
   MSParam. ShellCapBits            = USER_MICRO_BIT_CAP_ALL;
   for (i = 0; i < 3; ++i) {
       MSRegularParam -> TilingSteps[i]    =
 	  (CagdRType *) IritMalloc(sizeof(CagdRType) * 2);
       MSRegularParam -> TilingSteps[i][0] = 1;
   }
-  MSRegularParam -> TilingSteps[0][1] = nu;
-  MSRegularParam -> TilingSteps[1][1] = nv;
-  MSRegularParam -> TilingSteps[2][1] = nw;
+  MSRegularParam -> TilingSteps[0][1] = tilesPerKnot[0];
+  MSRegularParam -> TilingSteps[1][1] = tilesPerKnot[1];
+  MSRegularParam -> TilingSteps[2][1] = tilesPerKnot[2];
 
 
   /* Call back function - will be called for each tile in the grid just   */
@@ -358,15 +358,16 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
   }
   for ( i = 0; i <  IPListObjectLength(MS); i++ ) {
       pTmp = IPListObjectGet (MS, i ) ;
-      BBox = getTileBBox ( TVMap, i, nu, nv, nw );
+      BBox = getTileBBox ( TVMap, i, tilesPerKnot);
+      printf(" TILE %d ->  BOUND BOX : %f %f  %f  %f  %f  %f \n", i,
+      BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
       j = 0 ;
       for ( TVout = pTmp -> U.Trivars; TVout !=NULL; TVout = TVout -> Pnext ) {
 	  TrivBndrySrfsFromTVToData( TVout, FALSE, BndrySrf);
 	  printf(" TVOUT %d \n", j);
 	  printf(" BOUND BOX : %f %f  %f  %f  %f  %f \n",
 		 BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
-
-	  j++;
+            j++;
       }
   }
   MvarMVFree(DeformMV);
@@ -393,30 +394,19 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
 
 int main(int argc, char **argv)
 {
-  int nu, nv, nw;
+  int nT[3];
   if ( argc < 6 ) {
       printf(" I NEED A DOMAIN FILE (*.itd) + number of tiles per dir + circ (1) or squared (0) \n");
       return -1;
   }
   snprintf( ductName, 100,"%s", argv[1]);
   snprintf(tiledName, 100,"tiled_%s", ductName);
-  /*printf(" Number of u tiles ?\n");
-  scanf ( "%d",&nu );
-
-  printf(" Number of v tiles ?\n");
-  scanf ( "%d",&nv );
-  printf(" Number of w tiles ?\n");
-  scanf ( "%d",&nw );
-  printf(" Circular =1 Square = 0 \n");
-  scanf ( "%d",&CIRC );
-  printf(" Boundary Skin ? 1 = TRUE 0 = FALSE\n");
-  scanf ("%d", &BOUNDSKIN ) ;*/
-  nu   = atoi ( argv[2] ) ;
-  nv   = atoi ( argv[3] ) ;
-  nw   = atoi ( argv[4] ) ;
-  CIRC = atoi ( argv[5] );
+  nT[0] = atoi ( argv[2] ) ;
+  nT[1] = atoi ( argv[3] ) ;
+  nT[2] = atoi ( argv[4] ) ;
+  CIRC  = atoi ( argv[5] );
   BOUNDSKIN = 1;
-  GenerateMicroStructure(nu, nv, nw);
+  GenerateMicroStructure(nT);
   return 0;
 }
 
