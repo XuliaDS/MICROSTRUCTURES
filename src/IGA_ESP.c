@@ -344,34 +344,46 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
   MS = LinMS;
   fprintf(stderr, "%d surfaces created\n", IPListObjectLength(MS));
   IPObjectStruct *pTmp;
-  TrivTVStruct *TVout;
-  CagdBBoxStruct BBox;
-  CagdSrfStruct *BndrySrf[6];
-
-  int j;
-
+  TrivTVStruct   *TVout;
+  CagdBBoxStruct BBox, TrivBBox;
+  CagdSrfStruct  **BndrySrf, **TrivarBnds;
+  int IDbounds[3], IDboundsLoc[3], j, IDTriv;
   TrivBndrySrfsFromTVToData( TVMap, FALSE, BndrySrf);
   for (i = 0; i < 6; i++) {
       CagdSrfBBox(BndrySrf[i], &BBox);
       printf(" SURFACE %d BOUND BOX : %f %f  %f  %f  %f  %f \n",
 	     i, BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
   }
+  Handler = IPOpenDataFile(tiledName, FALSE, 1);
+    IPPutObjectToHandler(Handler, MS);
+
   for ( i = 0; i <  IPListObjectLength(MS); i++ ) {
       pTmp = IPListObjectGet (MS, i ) ;
       int ID = AttrGetObjectIntAttrib(pTmp,"MSIndexID");
       BBox = getTileBBox ( TVMap, i, tilesPerKnot);
       printf(" TILE %d ->  BOUND BOX : %f %f  %f  %f  %f  %f \n", i,
-      BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
-      j = 0 ;
+	     BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
+      int k = 0 , ii;
       for ( TVout = pTmp -> U.Trivars; TVout !=NULL; TVout = TVout -> Pnext ) {
-	  TrivBndrySrfsFromTVToData( TVout, FALSE, BndrySrf);
-	  int IDTriv = AttrGetIntAttrib ( TVout->Attr, "MSGeomID");
-	  printf(" TVOUT %d \n", j);
-	  printf(" BOUND BOX : %f %f  %f  %f  %f  %f \n",
-		 BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
-            j++;
-      }
-      TRIV_TV_EVAL_E3(TV, uvw[0], uvw[1], uvw[2], P3 );
+	  TrivBndrySrfsFromTVToData( TVout, FALSE, TrivarBnds );
+	  CagdSrfBBox(TrivarBnds[i], &TrivBBox);
+	        printf(" TRIVAR BBOX: %f %f  %f  %f  %f  %f \n",
+	  	     TrivBBox.Min[0], TrivBBox.Max[0], TrivBBox.Min[1], TrivBBox.Max[1],
+		     TrivBBox.Min[2], TrivBBox.Max[2] ) ;
+
+	  printf(" NEW TRIVAR %d \n",k++);
+	  int IDTriv      = AttrGetIntAttrib( TVout -> Attr, "MSGeomID");
+	  IDbounds   [0] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryU");
+	  IDbounds   [1] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryV");
+	  IDbounds   [2] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryW");
+	  IDboundsLoc[0] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryU");
+	  IDboundsLoc[1] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryV");
+	  IDboundsLoc[2] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryW");
+	  for ( j = 0 ; j < 3; ++j )
+	    if ( IDbounds[j] >= 0 ) printf(" BOUND %d -> TVB %d LOCAL %d\n", j, IDbounds[j], IDboundsLoc[j]);
+
+	}
+      //TRIV_TV_EVAL_E3(TV, uvw[0], uvw[1], uvw[2], P3 );
       //CAGD_SRF_EVAL_E3 ( SURF, u, v , P3);
 
 
@@ -381,8 +393,6 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
   for (i = 0; i < 3; ++i)
     IritFree(MSRegularParam -> TilingSteps[i]);
 
-  Handler = IPOpenDataFile(tiledName, FALSE, 1);
-  IPPutObjectToHandler(Handler, MS);
   IPFreeObject(MS);
   IPCloseStream(Handler, TRUE);
 
