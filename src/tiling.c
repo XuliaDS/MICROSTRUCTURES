@@ -5,8 +5,10 @@
 #include "inc_irit/geom_lib.h"
 #include "inc_irit/cagd_lib.h"
 #include "inc_irit/user_lib.h"
+#include <nlopt.h>
 
 int CIRC  = 0;
+int BOUNDSKIN = 0 ;
 char tiledName[100], ductName[100];
 //#define DEBUG
 #define EPS04  1.e-4
@@ -16,6 +18,14 @@ typedef struct UserMicroLocalDataStruct { /* User specific data in CB funcs. */
   TrivTVStruct *DuDefMap, *DvDefMap, *DwDefMap;
   CagdRType fMax[6], boundingBox[6];
 } UserMicroLocalDataStruct;
+
+
+typedef struct UserTotalMicroStruct {
+  UserMicroRegularParamStruct *MSRP;
+  UserMicroParamStruct MSP;
+  UserMicroLocalDataStruct LDS;
+  int nTperKnot[3], nTperDir[3];
+} UserTotalMicroStruct ;
 
 static CagdRType setMaxVal(  TrivTVStruct  *TV, CagdRType *uvwMinMax ) {
   CagdRType *P3, uvw[3], max = 0.0, aux;
@@ -55,6 +65,7 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
   int i;
   switch (MS -> ObjType) {
     case IP_OBJ_LIST_OBJ:
+      printf(" HOL    TOTAL TILES ?  %d \n", IPListObjectLength(MS));
       for (i = 0; i < IPListObjectLength(MS); i++)
 	FlattenHierarchy2LinearList(IPListObjectGet(MS, i), LinMS);
       break;
@@ -62,6 +73,8 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
       IPListObjectAppend(LinMS, IPCopyObject(NULL, MS, TRUE));
       break;
   }
+  printf(" TOTAL TILES ?  %d \n", IPListObjectLength(LinMS));
+
 }
 
 static double partialDerMag ( TrivTVStruct *field, CagdRType u,  CagdRType v,  CagdRType w ) {
@@ -123,12 +136,19 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
       else          w = uvw_max[2];
       if  ( fabs ( w - TVfield -> boundingBox[4] ) <  EPS04 ||
 	  fabs ( w - TVfield -> boundingBox[5] ) <  EPS04  ) {
+#ifdef DEBUG
+	  printf(" w %f   bound box %f  %f \n", w , TVfield -> boundingBox[4] , TVfield -> boundingBox[5] );
+#endif
+
 	  norm[0] = partialDerMag ( TVfield -> DwDefMap, uvw_min[0], uvw_min[1], w );
 	  norm[1] = partialDerMag ( TVfield -> DwDefMap, uvw_max[0], uvw_min[1], w );
 	  norm[2] = partialDerMag ( TVfield -> DwDefMap, uvw_min[0], uvw_max[1], w );
 	  norm[3] = partialDerMag ( TVfield -> DwDefMap, uvw_max[0], uvw_max[1], w );
-	  for ( j = 0 ; j < 4; ++j )
-	    params[4 + i].Bndry[j] = norm[j] / TVfield -> fMax[i] * 0.25;
+	  /* If you set boundaries to value, it won't print attributes. Test it commenting the for loop below */
+	  if ( BOUNDSKIN == 1 ) {
+	      for ( j = 0 ; j < 4; ++j )
+		params[4 + i].Bndry[j] = 0.1 ;//norm[j] / TVfield -> fMax[i] * 0.25;
+	  }
 	  isBound = 1;
       }
   }
@@ -173,6 +193,7 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 
   IPFreeObject(Tile);                       /* Free the old (dummy) tile. */
   UVWparams = malloc ( 6 * sizeof(UserMicroTileBndryPrmStruct) );
+  IRIT_ZAP_MEM(UVWparams, 6 * sizeof(UserMicroTileBndryPrmStruct));
   if ( UVWparams == NULL ) {
       fprintf(stderr, "Failed to allocate memo\n");
       return Tile;
@@ -196,6 +217,11 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 
   return Tile;
 }
+
+
+//double optimizeTiles (  unsinged n, double *uvw, /*@unused@*/ grad, void *CBdata   ) {
+
+
 
 void GenerateMicroStructure(int nu, int nv, int nw) {
   char *ErrStr;
@@ -249,7 +275,7 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
   MSRegularParam -> Tile           = NULL;/* Tile is synthesized by call back func. */
   MSRegularParam -> TilingStepMode = TRUE;
   MSRegularParam -> MaxPolyEdgeLen = 0.1;
-  MSRegularParam -> ApproxLowOrder = 4 ;
+  MSParam.ApproxLowOrder           = 4 ;
   MSParam. ShellCapBits            = USER_MICRO_BIT_CAP_ALL;
   for (i = 0; i < 3; ++i) {
       MSRegularParam -> TilingSteps[i]    =
@@ -274,7 +300,21 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
   IPFreeObject(MS);
   MS = LinMS;
   fprintf(stderr, "%d surfaces created\n", IPListObjectLength(MS));
+  for(IPObjectStruct *kk = MS; kk != NULL; kk = kk->Pnext)
+    {
+      TrivTVStruct *tv_list = kk->U.Trivars;
+      fprintf(stderr, "%d trivariates in this tile\n", CagdListLength(tv_list));
 
+    }
+  CagdBBoxStruct BBox;
+  CagdSrfStruct *BndrySrf[6];
+
+  TrivBndrySrfsFromTVToData( TVMap, FALSE, BndrySrf);
+  for (i = 0; i < 6; i++) {
+      CagdSrfBBox(BndrySrf[i], &BBox);
+      printf(" SURFACE %d BOUND BOX : %f %f  %f  %f  %f  %f \n",
+	     i, BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
+  }
   MvarMVFree(DeformMV);
   UserMicroTileFree(MSRegularParam -> Tile);
   for (i = 0; i < 3; ++i)
@@ -297,11 +337,6 @@ void GenerateMicroStructure(int nu, int nv, int nw) {
 
 
 
-
-
-
-
-
 int main(int argc, char **argv)
 { 
   int nu, nv, nw;
@@ -311,10 +346,22 @@ int main(int argc, char **argv)
   }
   snprintf( ductName, 100,"%s", argv[1]);
   snprintf(tiledName, 100,"tiled_%s", ductName);
+  /*printf(" Number of u tiles ?\n");
+  scanf ( "%d",&nu );
+
+  printf(" Number of v tiles ?\n");
+  scanf ( "%d",&nv );
+  printf(" Number of w tiles ?\n");
+  scanf ( "%d",&nw );
+  printf(" Circular =1 Square = 0 \n");
+  scanf ( "%d",&CIRC );
+  printf(" Boundary Skin ? 1 = TRUE 0 = FALSE\n");
+  scanf ("%d", &BOUNDSKIN ) ;*/
   nu   = atoi ( argv[2] ) ;
   nv   = atoi ( argv[3] ) ;
   nw   = atoi ( argv[4] ) ;
   CIRC = atoi ( argv[5] );
+  BOUNDSKIN = 1;
   GenerateMicroStructure(nu, nv, nw);
   return 0;
 }
