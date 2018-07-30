@@ -358,17 +358,23 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
   }
   for ( i = 0; i <  IPListObjectLength(MS); i++ ) {
       pTmp = IPListObjectGet (MS, i ) ;
+      int ID = AttrGetObjectIntAttrib(pTmp,"MSIndexID");
       BBox = getTileBBox ( TVMap, i, tilesPerKnot);
       printf(" TILE %d ->  BOUND BOX : %f %f  %f  %f  %f  %f \n", i,
       BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
       j = 0 ;
       for ( TVout = pTmp -> U.Trivars; TVout !=NULL; TVout = TVout -> Pnext ) {
 	  TrivBndrySrfsFromTVToData( TVout, FALSE, BndrySrf);
+	  int IDTriv = AttrGetIntAttrib ( TVout->Attr, "MSGeomID");
 	  printf(" TVOUT %d \n", j);
 	  printf(" BOUND BOX : %f %f  %f  %f  %f  %f \n",
 		 BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
             j++;
       }
+      TRIV_TV_EVAL_E3(TV, uvw[0], uvw[1], uvw[2], P3 );
+      //CAGD_SRF_EVAL_E3 ( SURF, u, v , P3);
+
+
   }
   MvarMVFree(DeformMV);
   UserMicroTileFree(MSRegularParam -> Tile);
