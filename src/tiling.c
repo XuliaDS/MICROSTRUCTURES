@@ -6,8 +6,8 @@
 #include "inc_irit/cagd_lib.h"
 #include "inc_irit/user_lib.h"
 
-int CIRC  = 0;
-int BOUNDSKIN = 0 ;
+
+int CIRC      = 0;
 char tiledName[100], ductName[100];
 //#define DEBUG
 #define EPS04  1.e-4
@@ -142,21 +142,17 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
 	  norm[1] = partialDerMag ( TVfield -> DwDefMap, uvw_max[0], uvw_min[1], w );
 	  norm[2] = partialDerMag ( TVfield -> DwDefMap, uvw_min[0], uvw_max[1], w );
 	  norm[3] = partialDerMag ( TVfield -> DwDefMap, uvw_max[0], uvw_max[1], w );
-	  /* If you set boundaries to value, it won't print attributes. Test it commenting the for loop below */
-	  if ( BOUNDSKIN == 1 ) {
-	      for ( j = 0 ; j < 4; ++j )
-		params[4 + i].Bndry[j] = 0.1 ;//norm[j] / TVfield -> fMax[i] * 0.25;
-	  }
+	  for ( j = 0 ; j < 4; ++j )
+	    params[4 + i].Bndry[j] = .3;//4.0 * norm[j] / TVfield -> fMax[i] * 0.25;
 	  isBound = 1;
       }
   }
   for ( j = i = 0 ; i < 6; i++ ) {
-      // for wing tiles, hollowed tiles are very slow to visualize. Uncomment in the future
-      //if ( isBound )
-      //      params[i].InnerRadius = 0.0;
-      //else
+      params[i].InnerRadius = 0.0;
       if ( i %2 == 0 && i > 0 ) j++;
-      params[i].InnerRadius = 0.0;//0.03 *  (  j  + 1)* f[i]/TVfield ->fMax[i] ;
+#ifdef HOLLOWED
+      params[i].InnerRadius = 0.03 *  (  j  + 1)* f[i]/TVfield ->fMax[i] ;
+#endif
       params[i].OuterRadius = 0.1 * f[i]/TVfield ->fMax[i] ;
   }
 
@@ -319,27 +315,15 @@ int main(int argc, char **argv)
 { 
   int nu, nv, nw;
   if ( argc < 6 ) {
-      printf(" I NEED A DOMAIN FILE (*.itd) + number of tiles per dir + circ (1) or squared (0) \n");
+      printf(" I NEED A DOMAIN FILE (*.itd) + number of tiles per dir (3 vals) + tyle type: circ (1) or squared (0) \n");
       return -1;
   }
   snprintf( ductName, 100,"%s", argv[1]);
   snprintf(tiledName, 100,"tiled_%s", ductName);
-  /*printf(" Number of u tiles ?\n");
-  scanf ( "%d",&nu );
-
-  printf(" Number of v tiles ?\n");
-  scanf ( "%d",&nv );
-  printf(" Number of w tiles ?\n");
-  scanf ( "%d",&nw );
-  printf(" Circular =1 Square = 0 \n");
-  scanf ( "%d",&CIRC );
-  printf(" Boundary Skin ? 1 = TRUE 0 = FALSE\n");
-  scanf ("%d", &BOUNDSKIN ) ;*/
   nu   = atoi ( argv[2] ) ;
   nv   = atoi ( argv[3] ) ;
   nw   = atoi ( argv[4] ) ;
   CIRC = atoi ( argv[5] );
-  BOUNDSKIN = 1;
   GenerateMicroStructure(nu, nv, nw);
   return 0;
 }

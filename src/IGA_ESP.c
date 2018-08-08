@@ -66,7 +66,6 @@ static void FlattenHierarchy2LinearList(const IPObjectStruct *MS,
   int i;
   switch (MS -> ObjType) {
     case IP_OBJ_LIST_OBJ:
-      printf(" HOL    TOTAL TILES ?  %d \n", IPListObjectLength(MS));
       for (i = 0; i < IPListObjectLength(MS); i++)
 	FlattenHierarchy2LinearList(IPListObjectGet(MS, i), LinMS);
       break;
@@ -100,7 +99,7 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
       centre [i] = 0.5 * ( uvw_min[i] + uvw_max[i]) ;
   }
 
-#ifdef DEBUG
+#ifdef DEBUGG
   printf(" Tiles Coords %f  %f  %f  and %f  %f  %f\n",
 	 CBData -> TileIdxsMin[0],  CBData -> TileIdxsMin[1],  CBData -> TileIdxsMin[2],
 	 CBData -> TileIdxsMax[0],  CBData -> TileIdxsMax[1],  CBData -> TileIdxsMax[2]);
@@ -123,7 +122,7 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
   f[4] = partialDerMag ( TVfield -> DwDefMap, centre[0] , centre[1] , uvw_min[2] ) ;
   f[5] = partialDerMag ( TVfield -> DwDefMap, centre[0] , centre[1] , uvw_max[2] ) ;
 
-#ifdef DEBUG
+#ifdef DEBUGG
   printf(" ------------- FIELD DERIVATIVES ------------\n");
   for ( i = 0 ; i < 3; i ++) {
       printf(" i = %d  ->  param =  %f   Df %f \n", 2*i    , uvw_min[i], f[2*i    ] );
@@ -141,7 +140,7 @@ static void getFieldConditions( UserMicroPreProcessTileCBStruct *CBData ,  UserM
       else          w = uvw_max[2];
       if  ( fabs ( w - TVfield -> boundingBox[4] ) <  EPS04 ||
 	  fabs ( w - TVfield -> boundingBox[5] ) <  EPS04  ) {
-#ifdef DEBUG
+#ifdef DEBUGG
 	  printf(" w %f   bound box %f  %f \n", w , TVfield -> boundingBox[4] , TVfield -> boundingBox[5] );
 #endif
 
@@ -177,7 +176,7 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
   UserMicroTileBndryPrmStruct *UVWparams = NULL;
   // BOUND BOX [0,1]^3 //
 
-#ifdef DEBUG
+#ifdef DEBUGG
   printf("\n==========================  Tile[%d,%d,%d]  ===========\n",
 	 CBData -> TileIdxs[0],  CBData -> TileIdxs[1],  CBData -> TileIdxs[2]);
   printf(" Locally from (%0.2f, %0.2f %0.2f) to (%0.2f, %0.2f, %.2f)\t || globally from (%0.2f, %0.2f %0.2f) to (%0.2f, %0.2f, %.2f)\n",
@@ -196,15 +195,15 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 #endif
 
   IPFreeObject(Tile);                       /* Free the old (dummy) tile. */
-  UVWparams = malloc ( 6 * sizeof(UserMicroTileBndryPrmStruct) );
-  IRIT_ZAP_MEM(UVWparams, 6 * sizeof(UserMicroTileBndryPrmStruct));
+  UVWparams = (UserMicroTileBndryPrmStruct*) malloc ( 6 * sizeof(UserMicroTileBndryPrmStruct) );
+  IRIT_ZAP_MEM(UVWparams, 6 * sizeof(UserMicroTileBndryPrmStruct) );
   if ( UVWparams == NULL ) {
       fprintf(stderr, "Failed to allocate memo\n");
       return Tile;
   }
   getFieldConditions (CBData, UVWparams);
 
-#ifdef DEBUG
+#ifdef DEBUGG
   for ( i = 0 ; i < 6; i ++ ) {
       printf(" Parameters  %d : CIRCULAR %d \t"
 	  "BDRY %lf %lf %lf %lf RADII OUTER  %lf  INNER  %lf \n",
@@ -217,17 +216,54 @@ static IPObjectStruct *PreProcessTile( IPObjectStruct *Tile,  UserMicroPreProces
 #endif
   Tile = UserMicro3DCrossTile(&UVWparams[0], &UVWparams[1], &UVWparams[2],
 			      &UVWparams[3], &UVWparams[4], &UVWparams[5] );
-  Tile = GMTransformObject(Tile, CBData -> Mat);
 
+  free (UVWparams);
+  Tile = GMTransformObject(Tile, CBData -> Mat);
   return Tile;
 }
 
 
+int getTileIDFromTriv ( IPObjectStruct *MS, int trivID, int trivsPerTile ) {
+  int i, j, offset;
+  IPObjectStruct *tile;
+  TrivTVStruct *TV;
+  if ( trivsPerTile != 0 ) {
+      offset = trivID % ( trivsPerTile + 1) ; // ids have +1 bias
+      tile   = IPListObjectGet (MS, offset ) ;
+      if ( AttrGetObjectIntAttrib(tile,"MSTileID") != offset + 1) {
+	  fprintf(stderr, " I don't understand. I am grabbing the wrong tile....\n");
+	  return -1;
+      }
+      // check that indeed we have the right tile:
+      for ( TV= tile -> U.Trivars; TV !=NULL; TV = TV -> Pnext ) {
+	  i = AttrGetIntAttrib( TV -> Attr, "MSGeomID");
+	  if ( i == trivID ) return offset ;
+      }
+      fprintf(stderr, " I shouldn't have made it this far. messed up with the tile id\n");
+      return -1;
+  }
+  else {
+      for ( offset = 0; offset < IPListObjectLength(MS); offset++) {
+	  tile  = IPListObjectGet (MS, offset ) ;
+	  // check that indeed we have the right tile:
+	  for ( TV = tile -> U.Trivars; TV !=NULL; TV = TV -> Pnext ) {
+	      i = AttrGetIntAttrib( TV -> Attr, "MSGeomID");
+	      if ( i == trivID ) {
+		  printf(" YEP  %d = %d in tile %d \n", i, trivID, offset + 1);
+		  return offset;
+	      }
+	  }
+      }
+      fprintf(stderr, " I shouldn't have made it this far. messed up with the tile id\n");
+      return -1;
+  }
+}
 
-CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int tilesPerKnot[3] ) {
-  int ijk[3], m, n, d, res1, knotsPerDir[3],totalTiles[3];
+CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int tilesPerKnot[] ) {
+  int ijk[3], m, n, d, res1, knotsPerDir[3], totalTiles[3];
   CagdRType knotCoords[2], tileCoords[2];
   CagdBBoxStruct BBox;
+  id--;
   knotsPerDir[0] = TVAR -> ULength - TVAR -> UOrder + 1 ;
   knotsPerDir[1] = TVAR -> VLength - TVAR -> VOrder + 1 ;
   knotsPerDir[2] = TVAR -> WLength - TVAR -> WOrder + 1 ;
@@ -238,6 +274,7 @@ CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int tilesPerKnot[3] ) {
   res1           = id % ( totalTiles [0] * totalTiles [1]);
   ijk        [1] = res1 / totalTiles [0] ;
   ijk        [0] = res1 % totalTiles [0] ;
+  printf(" TILE COORDS %d %d %d\n",ijk[0], ijk[1], ijk[2] );
   // Get tile and knot coordinates:
   for ( d = 0 ; d < 3; d++ ) {
       m = ijk[d] / tilesPerKnot[d];
@@ -254,25 +291,101 @@ CagdBBoxStruct getTileBBox ( TrivTVStruct *TVAR, int id, int tilesPerKnot[3] ) {
 	     tileCoords[0], tileCoords[1], knotCoords[0], knotCoords[1] );
       printf(" DUCT COORDINATES %f  %f  \n", BBox.Min[d], BBox.Max[d] );
 #endif
-
   }
   return BBox;
 }
 
-int ULength, VLength, WLength;/* Mesh size in tri-variate tensor product.*/
-int UVPlane;	  /* Should equal ULength * VLength for fast access. */
-int UOrder, VOrder, WOrder;      /* Order in trivariate (B-spline only). */
-CagdBType UPeriodic, VPeriodic, WPeriodic;   /* Valid only for B-spline. */
-CagdRType *Points[CAGD_MAX_PT_SIZE];     /* Pointer on each axis vector. */
-CagdRType *UKnotVector, *VKnotVector, *WKnotVector;
+
+void getDuctUVW ( double uvw[], int ID,   TrivTVStruct *TVduct, int tilesPerKnot[], IPObjectStruct *MS, double *uvwDuct ) {
+  int i, j, tileID;
+  int tileIDbounds[3], ductIDbounds[3];
+  CagdRType *P3 = NULL, *PP3 = NULL, uvw0[3];
+  IPObjectStruct *tile;
+  TrivTVStruct *TV;
+  CagdBBoxStruct BBox;
+  CagdSrfStruct  **BndSrf = NULL;
+  void *handler;
+  BndSrf = ( CagdSrfStruct ** ) malloc (6 * sizeof ( CagdSrfStruct * ));
+  if ( BndSrf == NULL ) {
+      fprintf(stderr," MALLOC AT BndSrf !!!\n");
+      return ;
+  }
+  for ( i = 0 ; i < 6; i++ )  {
+      BndSrf[i] = (CagdSrfStruct * ) malloc ( sizeof ( CagdSrfStruct  ));
+      BndSrf[i] = IRIT_ZAP_MEM ( BndSrf[i], sizeof ( CagdSrfStruct  ));
+  }
+  P3  = IritMalloc(CAGD_MAX_PT_SIZE * sizeof(CagdRType));
+  PP3 = IritMalloc(CAGD_MAX_PT_SIZE * sizeof(CagdRType));
+  // Get six faces
+  TrivBndrySrfsFromTVToData( TVduct, FALSE, BndSrf );
+  // get tile ID
+  tileID = getTileIDFromTriv ( MS, ID, 0 );
+  if ( tileID < 0 ) {
+      fprintf(stderr, "FATAL ERROR:  I can't find a tile that holds trivariate %d \n", ID);
+      exit(1);
+  }
+  tile = IPListObjectGet (MS, tileID ) ;
+  BBox = getTileBBox (TVduct, tileID + 1, tilesPerKnot);
+  printf("\n\n TILE %d -> UVW BBOX %f %f %f MAX %f %f %f \n", tileID, BBox.Min[0], BBox.Min[1], BBox.Min[2],
+	 BBox.Max[0], BBox.Max[1], BBox.Max[2] );
+  // check that indeed we have the right tile:
+  for ( TV = tile -> U.Trivars; TV !=NULL; TV = TV -> Pnext ) {
+      if (  AttrGetIntAttrib( TV -> Attr, "MSGeomID") == ID )  break;
+  }
+  tileIDbounds[0] = AttrGetIntAttrib( TV -> Attr, "MSDfrmTVBndryU");
+  tileIDbounds[1] = AttrGetIntAttrib( TV -> Attr, "MSDfrmTVBndryV");
+  tileIDbounds[2] = AttrGetIntAttrib( TV -> Attr, "MSDfrmTVBndryW");
+  ductIDbounds[0] = AttrGetIntAttrib( TV -> Attr, "MSLclTVBndryU" );
+  ductIDbounds[1] = AttrGetIntAttrib( TV -> Attr, "MSLclTVBndryV" );
+  ductIDbounds[2] = AttrGetIntAttrib( TV -> Attr, "MSLclTVBndryW" );
+  for ( i = 0 ; i < 3; i++) {
+      if ( tileIDbounds[i] < 0 ) continue;
+      printf("\n\n TILE ID BOUND %d ( SURFACE %d ) \n", tileIDbounds[i], ductIDbounds[i]);
+      printf(" LOOKING FOR %f  %f  %f  from TRIV (%d) in DUCT \n", uvw[0], uvw[1], uvw[2], ID );
+      // get uv0s using tiles centre wrt trivariate
+      for ( j = 0 ; j < 3; ++j)
+	uvw0[j] = 0.5 * ( BBox.Min[j] + BBox.Max[j] );
+      if ( tileIDbounds[i] % 2 == 0 ) uvw0[i] = BBox.Min[i];
+      else                            uvw0[i] = BBox.Max[i];
+      TRIV_TV_EVAL_E3(TV    , uvw [0], uvw [1], uvw [2], P3);
+      TRIV_TV_EVAL_E3(TVduct, uvw0[0], uvw0[1], uvw0[2], PP3); // unused ATM
+      handler = MvarDistSrfPointPrep( BndSrf[ ductIDbounds[i] ] );
+      uvwDuct = MvarDistSrfPoint    ( BndSrf[ ductIDbounds[i] ], handler, P3, TRUE, 0.0001, 1.e-10, NULL );
+      MvarDistSrfPointFree(handler);
+#ifdef DEBUG
+      printf(" POINT COORDINATES IN TRIVARIATE: %f  %f  %f \n ", P3[0], P3[1], P3[2]);
+      printf(" Initial guess using tile: %f  %f  %f  -> %f   %f   %f (UNUSED)\n", uvw0[0], uvw0[1], uvw0[2], PP3[0], PP3[1], PP3[2]);
+      // inv evaluate: get global uvw
+      printf(" USING VAR %d  MIN MAX %d -> SURFACE %d \n", i, tileIDbounds[i], ductIDbounds[i] ) ;
+      TRIV_TV_EVAL_E3(TVduct, uvwDuct[0], uvwDuct[1], uvwDuct[2], PP3);
+      printf(" I have found DUCT Coords  %f  %f   (%f ~ 0 ) -> %f  %f  %f\n\n\n", uvwDuct[0], uvwDuct[1], uvwDuct[2],
+	     PP3[0], PP3[1], PP3[2]);
+#endif
+      for ( i = 0 ; i < 6 ; i++ )
+	free( BndSrf[i]);
+      free ( BndSrf);
+      IritFree ( PP3);
+      IritFree (P3);
+      return ;
+  }
+  for ( i = 0 ; i < 6 ; i++ )
+    free( BndSrf[i]);
+  free ( BndSrf);
+  IritFree ( PP3);
+  IritFree (P3);
+}
+
+
+
+
 
 void GenerateMicroStructure(int tilesPerKnot[3] ) {
   char *ErrStr;
   const char *name = ductName;
-  int i, ErrLine, Handler;
-  CagdRType
-  KeepStackStep = 1,
-  TrackAllocID = 0;
+  int i, j, ErrLine, Handler, IDTriv, IDbounds[3], IDboundsLoc[3];
+  IPObjectStruct *pTmp;
+  TrivTVStruct   *TVout;
+  CagdRType  KeepStackStep = 1,  TrackAllocID = 0;
   IPObjectStruct *MS, *LinMS;
   MvarMVStruct *DeformMV;
   TrivTVStruct *TVMap;
@@ -296,12 +409,11 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
 	       &LclData.boundingBox[2], &LclData.boundingBox[3],
 	       &LclData.boundingBox[4], &LclData.boundingBox[5]);
 
-#ifdef DEBUG
+#ifdef DEBUGG
   printf(" BOUNDING BOX  u [%f x %f] v [%f x %f] w [%f x %f] \n",
 	 LclData.boundingBox[0],LclData.boundingBox[1],LclData.boundingBox[2],
 	 LclData.boundingBox[3],LclData.boundingBox[4],LclData.boundingBox[5]);
 #endif
-
   LclData.fMax[0] = setMaxVal ( LclData.DuDefMap , LclData.boundingBox);
   LclData.fMax[1] = LclData.fMax[0];
   LclData.fMax[2] = setMaxVal ( LclData.DvDefMap , LclData.boundingBox);
@@ -343,50 +455,35 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
   IPFreeObject(MS);
   MS = LinMS;
   fprintf(stderr, "%d surfaces created\n", IPListObjectLength(MS));
-  IPObjectStruct *pTmp;
-  TrivTVStruct   *TVout;
-  CagdBBoxStruct BBox, TrivBBox;
-  CagdSrfStruct  **BndrySrf, **TrivarBnds;
-  int IDbounds[3], IDboundsLoc[3], j, IDTriv;
-  TrivBndrySrfsFromTVToData( TVMap, FALSE, BndrySrf);
-  for (i = 0; i < 6; i++) {
-      CagdSrfBBox(BndrySrf[i], &BBox);
-      printf(" SURFACE %d BOUND BOX : %f %f  %f  %f  %f  %f \n",
-	     i, BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
-  }
   Handler = IPOpenDataFile(tiledName, FALSE, 1);
-    IPPutObjectToHandler(Handler, MS);
-
+  IPPutObjectToHandler(Handler, MS);
+  /* Pretend to have a uvw parameters list. Use boundary trivars centres as evaluation.
+   * We are goint to obtain global uvw (duct coordinates)
+   */
   for ( i = 0; i <  IPListObjectLength(MS); i++ ) {
       pTmp = IPListObjectGet (MS, i ) ;
-      int ID = AttrGetObjectIntAttrib(pTmp,"MSIndexID");
-      BBox = getTileBBox ( TVMap, i, tilesPerKnot);
-      printf(" TILE %d ->  BOUND BOX : %f %f  %f  %f  %f  %f \n", i,
-	     BBox.Min[0], BBox.Max[0], BBox.Min[1], BBox.Max[1], BBox.Min[2], BBox.Max[2] ) ;
+      int ID = AttrGetObjectIntAttrib(pTmp,"MSTileID");
       int k = 0 , ii;
       for ( TVout = pTmp -> U.Trivars; TVout !=NULL; TVout = TVout -> Pnext ) {
-	  TrivBndrySrfsFromTVToData( TVout, FALSE, TrivarBnds );
-	  CagdSrfBBox(TrivarBnds[i], &TrivBBox);
-	        printf(" TRIVAR BBOX: %f %f  %f  %f  %f  %f \n",
-	  	     TrivBBox.Min[0], TrivBBox.Max[0], TrivBBox.Min[1], TrivBBox.Max[1],
-		     TrivBBox.Min[2], TrivBBox.Max[2] ) ;
-
-	  printf(" NEW TRIVAR %d \n",k++);
-	  int IDTriv      = AttrGetIntAttrib( TVout -> Attr, "MSGeomID");
+	  IDTriv         = AttrGetIntAttrib( TVout -> Attr, "MSGeomID"      );
 	  IDbounds   [0] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryU");
 	  IDbounds   [1] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryV");
 	  IDbounds   [2] = AttrGetIntAttrib( TVout -> Attr, "MSDfrmTVBndryW");
-	  IDboundsLoc[0] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryU");
-	  IDboundsLoc[1] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryV");
-	  IDboundsLoc[2] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryW");
-	  for ( j = 0 ; j < 3; ++j )
-	    if ( IDbounds[j] >= 0 ) printf(" BOUND %d -> TVB %d LOCAL %d\n", j, IDbounds[j], IDboundsLoc[j]);
-
-	}
-      //TRIV_TV_EVAL_E3(TV, uvw[0], uvw[1], uvw[2], P3 );
-      //CAGD_SRF_EVAL_E3 ( SURF, u, v , P3);
-
-
+	  IDboundsLoc[0] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryU" );
+	  IDboundsLoc[1] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryV" );
+	  IDboundsLoc[2] = AttrGetIntAttrib( TVout -> Attr, "MSLclTVBndryW" );
+	  double uvw[3], uvwDuct[3];
+	  for ( j = 0 ; j < 3; ++j ) {
+	      if ( IDbounds[j] >= 0 ) {
+		  printf("----------- BOUND %d -> (At surf %d )\n", IDbounds[j], IDboundsLoc[j]);
+		  uvw[0] = 0.5 ; uvw[1] = 0.5 ; uvw[2] = 0.5 ;
+		  if ( IDbounds[j] %2 == 0 ) uvw[j] = 0.0;
+		  else uvw[j] = 1.0;
+		  getDuctUVW( uvw, IDTriv, TVMap, tilesPerKnot, MS, uvwDuct );
+		  printf("-------------------------------------\n");
+	      }
+	  }
+      }
   }
   MvarMVFree(DeformMV);
   UserMicroTileFree(MSRegularParam -> Tile);
@@ -395,7 +492,6 @@ void GenerateMicroStructure(int tilesPerKnot[3] ) {
 
   IPFreeObject(MS);
   IPCloseStream(Handler, TRUE);
-
   /* Free the structure for the call back function. */
   TrivTVFree(TVMap);
   TrivTVFree(LclData.DuDefMap);

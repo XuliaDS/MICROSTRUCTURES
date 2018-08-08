@@ -31,6 +31,8 @@
 #include "inc_irit/geom_lib.h"
 #include "inc_irit/user_lib.h"
 
+#define OUTPUTSURFACES
+
 extern int EG_spline2dAppx( ego context,     int    endc,   /*@null@*/ const double *uknot,
 			    /*@null@*/ const double *vknot,  /*@null@*/ const int    *vdata,
 			    /*@null@*/ const double *wesT,   /*@null@*/ const double *easT,
@@ -492,6 +494,25 @@ int main(int argc, char *argv[])
 	      printf(" EG_spline2dAppx %d !!!! \n", stat );
 	      goto cleanup;
 	  }
+#ifdef OUTPUTSURFACES
+      printf(" DUMP A DAT FILE SAMPLING BOTTOM AND TOP SURFACES \n");
+      double ts[4], uv[2], xyz[18];
+      int per, N = 100;
+      FILE *fs;
+      char buff[100];
+      stat = EG_getRange ( trimmed_surf[k], ts, &per);
+      snprintf(buff,100,"surface%d.dat", k );
+      fs   = fopen ( buff, "w" );
+      for ( i = 0 ; i <= N; i++ ) {
+	  for ( j = 0 ; j <= N; j++ ) {
+	      uv[0] = (double ) j * ( ts[1] - ts[0] ) / (double)N;
+	      uv[1] = (double ) i * ( ts[3] - ts[2] ) / (double)N;
+	      stat = EG_evaluate ( trimmed_surf[k], uv, xyz ) ;
+	      fprintf(fs, "%lf %lf %lf\n", xyz[0], xyz[1], xyz[2] );
+	  }
+      }
+      fclose ( fs ) ;
+#endif
       }
       /* Save a trimmed egas file */
       /* SAVE SURFACES FOR IRIT *.itd */
